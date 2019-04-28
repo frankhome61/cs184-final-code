@@ -1,1 +1,1 @@
-# Assignment 4: Cloth Simulation
+# CS184 Final Project: Interstellar Bang Bang
