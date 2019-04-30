@@ -301,33 +301,65 @@ bool loadObjectsFromFile(string filename, Cloth *cloth, ClothParameters *cp, vec
       cp->damping = damping;
       cp->ks = ks;
     } else if (key == SPHERE) {
-      Vector3D origin;
-      double radius, friction;
+        cout << object[0];
+        for (json o: object) {
+            cout << o << endl;
+              Vector3D origin;
+            Vector3D prev;
+              double radius, friction;
+                int type;
+            double mass;
 
-      auto it_origin = object.find("origin");
-      if (it_origin != object.end()) {
-        vector<double> vec_origin = *it_origin;
-        origin = Vector3D(vec_origin[0], vec_origin[1], vec_origin[2]);
-      } else {
-        incompleteObjectError("sphere", "origin");
-      }
+            auto it_mass = o.find("mass");
+            
+            if (it_mass != o.end()) {
+                mass = *it_mass;
+            } else {
+                incompleteObjectError("sphere", "mass");
+            }
+            
+            auto it_prev = o.find("prev");
+            if (it_prev != o.end()) {
+                vector<double> vec_prev = *it_prev;
+                prev = Vector3D(vec_prev[0], vec_prev[1], vec_prev[2]);
+            } else {
+                incompleteObjectError("sphere", "prev");
+            }
+            
+              auto it_origin = o.find("origin");
+              if (it_origin != o.end()) {
+                vector<double> vec_origin = *it_origin;
+                origin = Vector3D(vec_origin[0], vec_origin[1], vec_origin[2]);
+              } else {
+                incompleteObjectError("sphere", "origin");
+              }
 
-      auto it_radius = object.find("radius");
-      if (it_radius != object.end()) {
-        radius = *it_radius;
-      } else {
-        incompleteObjectError("sphere", "radius");
-      }
+              auto it_radius = o.find("radius");
+              if (it_radius != o.end()) {
+                radius = *it_radius;
+              } else {
+                incompleteObjectError("sphere", "radius");
+              }
 
-      auto it_friction = object.find("friction");
-      if (it_friction != object.end()) {
-        friction = *it_friction;
-      } else {
-        incompleteObjectError("sphere", "friction");
-      }
+              auto it_friction = o.find("friction");
+              if (it_friction != o.end()) {
+                friction = *it_friction;
+              } else {
+                incompleteObjectError("sphere", "friction");
+              }
+            
+            auto it_type = o.find("type");
+            if (it_type != o.end()) {
+                type = *it_type;
+            } else {
+                incompleteObjectError("sphere", "type");
+            }
 
-      Sphere *s = new Sphere(origin, radius, friction, sphere_num_lat, sphere_num_lon);
-      objects->push_back(s);
+              Sphere *s = new Sphere(origin, prev, radius, friction, mass, sphere_num_lat, sphere_num_lon, type);
+              objects->push_back(s);
+        }
+        
+        
     } else { // PLANE
       Vector3D point, normal;
       double friction;
@@ -357,7 +389,7 @@ bool loadObjectsFromFile(string filename, Cloth *cloth, ClothParameters *cp, vec
 
       Plane *p = new Plane(point, normal, friction);
       objects->push_back(p);
-    }
+    } // PLANE
   }
 
   i.close();

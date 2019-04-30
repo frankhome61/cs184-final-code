@@ -16,7 +16,9 @@
 // Needed to generate stb_image binaries. Should only define in exactly one source file importing stb_image.h.
 #define STB_IMAGE_IMPLEMENTATION
 #include "misc/stb_image.h"
+#include <iostream>
 
+float const GRAVITY_CONSTANT = 6.67408 * pow(10.0, -11.0);
 using namespace nanogui;
 using namespace std;
 
@@ -65,21 +67,22 @@ void load_cubemap(int frame_idx, GLuint handle, const std::vector<std::string>& 
 }
 
 void ClothSimulator::load_textures() {
-  glGenTextures(1, &m_gl_texture_1);
-  glGenTextures(1, &m_gl_texture_2);
-  glGenTextures(1, &m_gl_texture_3);
-  glGenTextures(1, &m_gl_texture_4);
+  glGenTextures(1, &m_gl_texture_earth);
+  glGenTextures(1, &m_gl_texture_jupiter);
+  glGenTextures(1, &m_gl_texture_mars);
+  glGenTextures(1, &m_gl_texture_sun);
+
   glGenTextures(1, &m_gl_cubemap_tex);
   
-  m_gl_texture_1_size = load_texture(1, m_gl_texture_1, (m_project_root + "/textures/texture_1.png").c_str());
-  m_gl_texture_2_size = load_texture(2, m_gl_texture_2, (m_project_root + "/textures/texture_2.png").c_str());
-  m_gl_texture_3_size = load_texture(3, m_gl_texture_3, (m_project_root + "/textures/texture_3.png").c_str());
-  m_gl_texture_4_size = load_texture(4, m_gl_texture_4, (m_project_root + "/textures/texture_4.png").c_str());
+  m_gl_texture_earth_size = load_texture(1, m_gl_texture_earth, (m_project_root + "/textures/earth.png").c_str());
+  m_gl_texture_jupiter_size = load_texture(2, m_gl_texture_jupiter, (m_project_root + "/textures/jupiter.png").c_str());
+  m_gl_texture_mars_size = load_texture(3, m_gl_texture_mars, (m_project_root + "/textures/mars.png").c_str());
+  m_gl_texture_sun_size = load_texture(4, m_gl_texture_sun, (m_project_root + "/textures/sun.png").c_str());
   
-  std::cout << "Texture 1 loaded with size: " << m_gl_texture_1_size << std::endl;
-  std::cout << "Texture 2 loaded with size: " << m_gl_texture_2_size << std::endl;
-  std::cout << "Texture 3 loaded with size: " << m_gl_texture_3_size << std::endl;
-  std::cout << "Texture 4 loaded with size: " << m_gl_texture_4_size << std::endl;
+  std::cout << "Texture 1 loaded with size: " << m_gl_texture_earth_size << std::endl;
+  std::cout << "Texture 2 loaded with size: " << m_gl_texture_jupiter_size << std::endl;
+  std::cout << "Texture 3 loaded with size: " << m_gl_texture_mars_size << std::endl;
+  std::cout << "Texture 4 loaded with size: " << m_gl_texture_sun_size << std::endl;
   
   std::vector<std::string> cubemap_fnames = {
     m_project_root + "/textures/cube/posx.jpg",
@@ -170,10 +173,10 @@ ClothSimulator::~ClothSimulator() {
   for (auto shader : shaders) {
     shader.nanogui_shader.free();
   }
-  glDeleteTextures(1, &m_gl_texture_1);
-  glDeleteTextures(1, &m_gl_texture_2);
-  glDeleteTextures(1, &m_gl_texture_3);
-  glDeleteTextures(1, &m_gl_texture_4);
+  glDeleteTextures(1, &m_gl_texture_earth);
+  glDeleteTextures(1, &m_gl_texture_jupiter);
+  glDeleteTextures(1, &m_gl_texture_mars);
+  glDeleteTextures(1, &m_gl_texture_sun);
   glDeleteTextures(1, &m_gl_cubemap_tex);
 
   if (cloth) delete cloth;
@@ -242,17 +245,17 @@ bool ClothSimulator::isAlive() { return is_alive; }
 void ClothSimulator::drawContents() {
   glEnable(GL_DEPTH_TEST);
 
-  if (!is_paused) {
-    vector<Vector3D> external_accelerations = {gravity};
-
-    for (int i = 0; i < simulation_steps; i++) {
-      cloth->simulate(frames_per_sec, simulation_steps, cp, external_accelerations, collision_objects);
-    }
-  }
+//  if (!is_paused) {
+//    vector<Vector3D> external_accelerations = {gravity};
+//
+////    for (int i = 0; i < simulation_steps; i++) {
+////      cloth->simulate(frames_per_sec, simulation_steps, cp, external_accelerations, collision_objects);
+////    }
+//  }
 
   // Bind the active shader
 
-  const UserShader& active_shader = shaders[active_shader_idx];
+  const UserShader& active_shader = shaders[7];
 
   GLShader shader = active_shader.nanogui_shader;
   shader.bind();
@@ -286,27 +289,52 @@ void ClothSimulator::drawContents() {
     shader.setUniform("u_cam_pos", Vector3f(cam_pos.x, cam_pos.y, cam_pos.z), false);
     shader.setUniform("u_light_pos", Vector3f(0.5, 2, 2), false);
     shader.setUniform("u_light_intensity", Vector3f(3, 3, 3), false);
-    shader.setUniform("u_texture_1_size", Vector2f(m_gl_texture_1_size.x, m_gl_texture_1_size.y), false);
-    shader.setUniform("u_texture_2_size", Vector2f(m_gl_texture_2_size.x, m_gl_texture_2_size.y), false);
-    shader.setUniform("u_texture_3_size", Vector2f(m_gl_texture_3_size.x, m_gl_texture_3_size.y), false);
-    shader.setUniform("u_texture_4_size", Vector2f(m_gl_texture_4_size.x, m_gl_texture_4_size.y), false);
+    shader.setUniform("u_texture_earth_size", Vector2f(m_gl_texture_earth_size.x, m_gl_texture_earth_size.y), false);
+    shader.setUniform("u_texture_jupiter_size", Vector2f(m_gl_texture_jupiter_size.x, m_gl_texture_jupiter_size.y), false);
+    shader.setUniform("u_texture_mars_size", Vector2f(m_gl_texture_mars_size.x, m_gl_texture_mars_size.y), false);
+    shader.setUniform("u_texture_sun_size", Vector2f(m_gl_texture_sun_size.x, m_gl_texture_sun_size.y), false);
     // Textures
-    shader.setUniform("u_texture_1", 1, false);
-    shader.setUniform("u_texture_2", 2, false);
-    shader.setUniform("u_texture_3", 3, false);
-    shader.setUniform("u_texture_4", 4, false);
+    
+    shader.setUniform("u_texture_earth", 1, false);
+    shader.setUniform("u_texture_jupiter", 2, false);
+    shader.setUniform("u_texture_mars", 3, false);
+    shader.setUniform("u_texture_sun", 4, false);
     
     shader.setUniform("u_normal_scaling", m_normal_scaling, false);
     shader.setUniform("u_height_scaling", m_height_scaling, false);
     
     shader.setUniform("u_texture_cubemap", 5, false);
-    drawPhong(shader);
+    //drawPhong(shader);
     break;
   }
 
   for (CollisionObject *co : *collision_objects) {
+      Sphere* sp = dynamic_cast<Sphere*>(co);
+      if (sp != nullptr)
+          shader.setUniform("type", sp -> type, false);
+      
     co->render(shader);
   }
+     if (!is_paused) {
+        for (int i = 0; i < simulation_steps; i++) {
+          for (CollisionObject *co : *collision_objects) {
+              vector<Vector3D> external_accelerations = {};
+              Sphere* sp = dynamic_cast<Sphere*>(co);
+              if (sp != nullptr && sp->type != 4) {
+                  for (CollisionObject *cp : *collision_objects) {
+                      Sphere* sq = dynamic_cast<Sphere*>(cp);
+                      if (sq != nullptr && sq != sp) {
+                          double dist2 = (sq->origin - sp->origin).norm2();
+                          Vector3D radialDir = (sq->origin - sp->origin).unit();
+                          Vector3D grav = GRAVITY_CONSTANT * sp->mass * sq->mass / dist2 * radialDir;
+                          external_accelerations.push_back(grav);
+                      }
+                  }
+                  sp -> simulate(frames_per_sec, simulation_steps, external_accelerations);
+              }
+          }
+        }
+     }
 }
 
 void ClothSimulator::drawWireframe(GLShader &shader) {

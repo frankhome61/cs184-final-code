@@ -27,3 +27,31 @@ void Sphere::render(GLShader &shader) {
   // and intersect with the sphere when rendered
   m_sphere_mesh.draw_sphere(shader, origin, radius * 0.92);
 }
+
+void Sphere::moveTo(Vector3D newPos) {
+    this -> origin = newPos;
+}
+
+void Sphere::moveStep(Vector3D newPos) {
+    this -> origin += newPos;
+}
+
+void Sphere::simulate(double frames_per_sec,
+                      double simulation_steps,
+                      vector<Vector3D> external_accelerations) {
+    
+    double delta_t = 1.0f / frames_per_sec / simulation_steps;
+    Vector3D force(0, 0, 0);
+    for (Vector3D accel: external_accelerations) {
+        force += mass * accel;
+    }
+    
+    Vector3D currPos = this->currPosition;
+    Vector3D prevPos = this->prevPosition;
+    Vector3D newAccel = force / this->mass;
+    Vector3D newPos = currPos + currPos - prevPos + newAccel * pow(delta_t, 2);
+    this->currPosition = newPos;
+    this->prevPosition = currPos;
+    this->origin = newPos;
+    
+}

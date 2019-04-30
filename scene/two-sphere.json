@@ -1,15 +1,37 @@
+
 {
-    "sphere": {
-        "origin": [0.5, 0.2, 0.5],
+    "sphere": [{
+        "mass": 1E+6,
+        "prev": [0.01, 0, 3.2],
+        "origin": [0, 0, 3.2],
         "radius": 0.2,
-        "friction": 0.3
+        "friction": 0.3,
+        "type": 1
     },
-    
-    "sphere": {
-        "origin": [1.0, 0.6, 1.0],
+    {
+        "mass": 1E+6,
+        "prev": [2.2, 0, -0.03],
+        "origin": [2.2, 0, 0],
+        "radius": 0.4,
+        "friction": 0.3,
+        "type": 2
+    },
+    {
+        "mass": 1E+6,
+        "prev": [-2, 0, -0.03],
+        "origin": [-2, 0, 0],
         "radius": 0.2,
-        "friction": 0.3
+        "friction": 0.3,
+        "type": 3
     },
+    {
+        "mass": 1E+8,
+        "prev": [0, 0, 0],
+        "origin": [0, 0, 0],
+        "radius": 0.5,
+        "friction": 0.3,
+        "type": 4
+    }],
     
     "cloth": {
         "damping": 0.2,

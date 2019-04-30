@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0187660F227810AF00D5C880 /* matrix4x4.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 01ECF24C227585D40000A23F /* matrix4x4.cpp */; };
+		01876610227810B700D5C880 /* vector3D.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 01ECF252227585D40000A23F /* vector3D.cpp */; };
+		018766112278113D00D5C880 /* vector3D.h in Sources */ = {isa = PBXBuildFile; fileRef = 01ECF1D1227585D40000A23F /* vector3D.h */; };
 		01EC07BA227588540000A23F /* cloth.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 01EC07B9227588540000A23F /* cloth.cpp */; };
 		01ECF18E227585840000A23F /* camera_ops.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 01ECF16B227585420000A23F /* camera_ops.cpp */; };
 		01ECF18F227585840000A23F /* file_utils.h in Sources */ = {isa = PBXBuildFile; fileRef = 01ECF16C227585420000A23F /* file_utils.h */; };
@@ -16385,10 +16388,13 @@
 				01ECF191227585840000A23F /* dirent.h in Sources */,
 				01ECF192227585840000A23F /* collada_info.h in Sources */,
 				01ECF193227585840000A23F /* sphere_drawing.cpp in Sources */,
+				0187660F227810AF00D5C880 /* matrix4x4.cpp in Sources */,
 				01ECF194227585840000A23F /* getopt.h in Sources */,
 				01ECF195227585840000A23F /* stb_image.h in Sources */,
 				01ECF196227585840000A23F /* camera_info.h in Sources */,
 				01ECF197227585840000A23F /* sphere_drawing.h in Sources */,
+				018766112278113D00D5C880 /* vector3D.h in Sources */,
+				01876610227810B700D5C880 /* vector3D.cpp in Sources */,
 				01ECF198227585840000A23F /* file_utils.cpp in Sources */,
 				01ECF199227585840000A23F /* getopt.c in Sources */,
 				01ECF19A227585840000A23F /* clothSimulator.h in Sources */,
