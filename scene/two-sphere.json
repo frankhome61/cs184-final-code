@@ -2,8 +2,8 @@
 {
     "sphere": [{
         "mass": 1E+6,
-        "prev": [0.01, 0, 2.2],
-        "origin": [0, 0, 2.2],
+        "prev": [0.02, 0, 2.6],
+        "origin": [0, 0, 2.6],
         "radius": 0.2,
         "friction": 0.3,
         "type": 1
