@@ -71,6 +71,7 @@ void ClothSimulator::load_textures() {
   glGenTextures(1, &m_gl_texture_jupiter);
   glGenTextures(1, &m_gl_texture_mars);
   glGenTextures(1, &m_gl_texture_sun);
+     glGenTextures(1, &m_gl_texture_universe);
 
   glGenTextures(1, &m_gl_cubemap_tex);
   
@@ -78,6 +79,7 @@ void ClothSimulator::load_textures() {
   m_gl_texture_jupiter_size = load_texture(2, m_gl_texture_jupiter, (m_project_root + "/textures/jupiter.png").c_str());
   m_gl_texture_mars_size = load_texture(3, m_gl_texture_mars, (m_project_root + "/textures/mars.png").c_str());
   m_gl_texture_sun_size = load_texture(4, m_gl_texture_sun, (m_project_root + "/textures/sun.png").c_str());
+    m_gl_texture_sun_size = load_texture(5, m_gl_texture_universe, (m_project_root + "/textures/universe.png").c_str());
   
   std::cout << "Texture 1 loaded with size: " << m_gl_texture_earth_size << std::endl;
   std::cout << "Texture 2 loaded with size: " << m_gl_texture_jupiter_size << std::endl;
@@ -93,7 +95,7 @@ void ClothSimulator::load_textures() {
     m_project_root + "/textures/cube/negz.jpg"
   };
   
-  load_cubemap(5, m_gl_cubemap_tex, cubemap_fnames);
+  load_cubemap(6, m_gl_cubemap_tex, cubemap_fnames);
   std::cout << "Loaded cubemap texture" << std::endl;
 }
 
@@ -177,6 +179,7 @@ ClothSimulator::~ClothSimulator() {
   glDeleteTextures(1, &m_gl_texture_jupiter);
   glDeleteTextures(1, &m_gl_texture_mars);
   glDeleteTextures(1, &m_gl_texture_sun);
+    glDeleteTextures(1, &m_gl_texture_universe);
   glDeleteTextures(1, &m_gl_cubemap_tex);
 
   if (cloth) delete cloth;
@@ -293,17 +296,19 @@ void ClothSimulator::drawContents() {
     shader.setUniform("u_texture_jupiter_size", Vector2f(m_gl_texture_jupiter_size.x, m_gl_texture_jupiter_size.y), false);
     shader.setUniform("u_texture_mars_size", Vector2f(m_gl_texture_mars_size.x, m_gl_texture_mars_size.y), false);
     shader.setUniform("u_texture_sun_size", Vector2f(m_gl_texture_sun_size.x, m_gl_texture_sun_size.y), false);
+    shader.setUniform("u_texture_universe_size", Vector2f(m_gl_texture_universe_size.x, m_gl_texture_universe_size.y), false);
     // Textures
     
     shader.setUniform("u_texture_earth", 1, false);
     shader.setUniform("u_texture_jupiter", 2, false);
     shader.setUniform("u_texture_mars", 3, false);
     shader.setUniform("u_texture_sun", 4, false);
+    shader.setUniform("u_texture_universe", 5, false);
     
     shader.setUniform("u_normal_scaling", m_normal_scaling, false);
     shader.setUniform("u_height_scaling", m_height_scaling, false);
     
-    shader.setUniform("u_texture_cubemap", 5, false);
+    shader.setUniform("u_texture_cubemap", 6, false);
     //drawPhong(shader);
     break;
   }
@@ -320,10 +325,10 @@ void ClothSimulator::drawContents() {
           for (CollisionObject *co : *collision_objects) {
               vector<Vector3D> external_accelerations = {};
               Sphere* sp = dynamic_cast<Sphere*>(co);
-              if (sp != nullptr && sp->type != 4) {
+              if (sp != nullptr && sp->type != 4 && sp->type != 0) {
                   for (CollisionObject *cp : *collision_objects) {
                       Sphere* sq = dynamic_cast<Sphere*>(cp);
-                      if (sq != nullptr && sq != sp) {
+                      if (sq != nullptr && sq != sp && sq->type != 0) {
                           double dist2 = (sq->origin - sp->origin).norm2();
                           Vector3D radialDir = (sq->origin - sp->origin).unit();
                           Vector3D grav = GRAVITY_CONSTANT * sp->mass * sq->mass / dist2 * radialDir;
@@ -666,33 +671,34 @@ void ClothSimulator::initGUI(Screen *screen) {
   window = new Window(screen, "Simulation");
   window->setPosition(Vector2i(default_window_size(0) - 245, 15));
   window->setLayout(new GroupLayout(15, 6, 14, 5));
+    
 
   // Spring types
 
-  new Label(window, "Spring types", "sans-bold");
-
-  {
-    Button *b = new Button(window, "structural");
-    b->setFlags(Button::ToggleButton);
-    b->setPushed(cp->enable_structural_constraints);
-    b->setFontSize(14);
-    b->setChangeCallback(
-        [this](bool state) { cp->enable_structural_constraints = state; });
-
-    b = new Button(window, "shearing");
-    b->setFlags(Button::ToggleButton);
-    b->setPushed(cp->enable_shearing_constraints);
-    b->setFontSize(14);
-    b->setChangeCallback(
-        [this](bool state) { cp->enable_shearing_constraints = state; });
-
-    b = new Button(window, "bending");
-    b->setFlags(Button::ToggleButton);
-    b->setPushed(cp->enable_bending_constraints);
-    b->setFontSize(14);
-    b->setChangeCallback(
-        [this](bool state) { cp->enable_bending_constraints = state; });
-  }
+//  new Label(window, "Spring types", "sans-bold");
+//
+//  {
+//    Button *b = new Button(window, "structural");
+//    b->setFlags(Button::ToggleButton);
+//    b->setPushed(cp->enable_structural_constraints);
+//    b->setFontSize(14);
+//    b->setChangeCallback(
+//        [this](bool state) { cp->enable_structural_constraints = state; });
+//
+//    b = new Button(window, "shearing");
+//    b->setFlags(Button::ToggleButton);
+//    b->setPushed(cp->enable_shearing_constraints);
+//    b->setFontSize(14);
+//    b->setChangeCallback(
+//        [this](bool state) { cp->enable_shearing_constraints = state; });
+//
+//    b = new Button(window, "bending");
+//    b->setFlags(Button::ToggleButton);
+//    b->setPushed(cp->enable_bending_constraints);
+//    b->setFontSize(14);
+//    b->setChangeCallback(
+//        [this](bool state) { cp->enable_bending_constraints = state; });
+//  }
 
   // Mass-spring parameters
 

@@ -8,6 +8,7 @@ uniform sampler2D u_texture_earth;
 uniform sampler2D u_texture_jupiter;
 uniform sampler2D u_texture_mars;
 uniform sampler2D u_texture_sun;
+uniform sampler2D u_texture_universe;
 
 uniform int type;
 
@@ -20,7 +21,9 @@ out vec4 out_color;
 void main() {
   // YOUR CODE HERE
     vec4 s;
-    if (type == 1) {
+    if (type == 0) {
+        s = texture(u_texture_universe, v_uv);
+    } else if (type == 1) {
         s = texture(u_texture_earth, v_uv);
     } else if (type == 2) {
         s = texture(u_texture_jupiter, v_uv);

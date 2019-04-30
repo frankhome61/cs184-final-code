@@ -78,11 +78,13 @@ private:
   Vector3D m_gl_texture_jupiter_size;
   Vector3D m_gl_texture_mars_size;
   Vector3D m_gl_texture_sun_size;
+    Vector3D m_gl_texture_universe_size;
   GLuint m_gl_texture_earth;
   GLuint m_gl_texture_jupiter;
   GLuint m_gl_texture_mars;
   GLuint m_gl_texture_sun;
   GLuint m_gl_cubemap_tex;
+    GLuint m_gl_texture_universe;
   
   // OpenGL customizable inputs
   

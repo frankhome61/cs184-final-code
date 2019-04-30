@@ -2,8 +2,8 @@
 {
     "sphere": [{
         "mass": 1E+6,
-        "prev": [0.01, 0, 3.2],
-        "origin": [0, 0, 3.2],
+        "prev": [0.01, 0, 2.2],
+        "origin": [0, 0, 2.2],
         "radius": 0.2,
         "friction": 0.3,
         "type": 1
@@ -31,6 +31,14 @@
         "radius": 0.5,
         "friction": 0.3,
         "type": 4
+    },
+    {
+        "mass": 0,
+        "prev": [0, 0, 0],
+        "origin": [0, 0, 0],
+        "radius": 30.2,
+        "friction": 0.3,
+        "type": 0
     }],
     
     "cloth": {
