@@ -321,6 +321,7 @@ void ClothSimulator::drawContents() {
     co->render(shader);
   }
      if (!is_paused) {
+         Vector3D collPt(-999, -999, -999);
         for (int i = 0; i < simulation_steps; i++) {
           for (CollisionObject *co : *collision_objects) {
               vector<Vector3D> external_accelerations = {};
@@ -335,7 +336,8 @@ void ClothSimulator::drawContents() {
                           external_accelerations.push_back(grav);
                       }
                   }
-                  sp -> simulate(frames_per_sec, simulation_steps, external_accelerations);
+                  sp -> simulate(frames_per_sec, simulation_steps, external_accelerations, collision_objects, collPt);
+                  cout << collPt <<endl;
               }
           }
         }
@@ -844,61 +846,61 @@ void ClothSimulator::initGUI(Screen *screen) {
     fb->setCallback([this](float value) { gravity.z = value; });
   }
   
-  window = new Window(screen, "Appearance");
-  window->setPosition(Vector2i(15, 15));
-  window->setLayout(new GroupLayout(15, 6, 14, 5));
+//  window = new Window(screen, "Appearance");
+//  window->setPosition(Vector2i(15, 15));
+//  window->setLayout(new GroupLayout(15, 6, 14, 5));
 
   // Appearance
 
-  {
-    
-    
-    ComboBox *cb = new ComboBox(window, shaders_combobox_names);
-    cb->setFontSize(14);
-    cb->setCallback(
-        [this, screen](int idx) { active_shader_idx = idx; });
-    cb->setSelectedIndex(active_shader_idx);
-  }
-
-  // Shader Parameters
-
-  new Label(window, "Color", "sans-bold");
-
-  {
-    ColorWheel *cw = new ColorWheel(window, color);
-    cw->setColor(this->color);
-    cw->setCallback(
-        [this](const nanogui::Color &color) { this->color = color; });
-  }
-
-  new Label(window, "Parameters", "sans-bold");
-
-  {
-    Widget *panel = new Widget(window);
-    GridLayout *layout =
-        new GridLayout(Orientation::Horizontal, 2, Alignment::Middle, 5, 5);
-    layout->setColAlignment({Alignment::Maximum, Alignment::Fill});
-    layout->setSpacing(0, 10);
-    panel->setLayout(layout);
-
-    new Label(panel, "Normal :", "sans-bold");
-
-    FloatBox<double> *fb = new FloatBox<double>(panel);
-    fb->setEditable(true);
-    fb->setFixedSize(Vector2i(100, 20));
-    fb->setFontSize(14);
-    fb->setValue(this->m_normal_scaling);
-    fb->setSpinnable(true);
-    fb->setCallback([this](float value) { this->m_normal_scaling = value; });
-
-    new Label(panel, "Height :", "sans-bold");
-
-    fb = new FloatBox<double>(panel);
-    fb->setEditable(true);
-    fb->setFixedSize(Vector2i(100, 20));
-    fb->setFontSize(14);
-    fb->setValue(this->m_height_scaling);
-    fb->setSpinnable(true);
-    fb->setCallback([this](float value) { this->m_height_scaling = value; });
-  }
+//  {
+//
+//
+//    ComboBox *cb = new ComboBox(window, shaders_combobox_names);
+//    cb->setFontSize(14);
+//    cb->setCallback(
+//        [this, screen](int idx) { active_shader_idx = idx; });
+//    cb->setSelectedIndex(active_shader_idx);
+//  }
+//
+//  // Shader Parameters
+//
+//  new Label(window, "Color", "sans-bold");
+//
+//  {
+//    ColorWheel *cw = new ColorWheel(window, color);
+//    cw->setColor(this->color);
+//    cw->setCallback(
+//        [this](const nanogui::Color &color) { this->color = color; });
+//  }
+//
+//  new Label(window, "Parameters", "sans-bold");
+//
+//  {
+//    Widget *panel = new Widget(window);
+//    GridLayout *layout =
+//        new GridLayout(Orientation::Horizontal, 2, Alignment::Middle, 5, 5);
+//    layout->setColAlignment({Alignment::Maximum, Alignment::Fill});
+//    layout->setSpacing(0, 10);
+//    panel->setLayout(layout);
+//
+//    new Label(panel, "Normal :", "sans-bold");
+//
+//    FloatBox<double> *fb = new FloatBox<double>(panel);
+//    fb->setEditable(true);
+//    fb->setFixedSize(Vector2i(100, 20));
+//    fb->setFontSize(14);
+//    fb->setValue(this->m_normal_scaling);
+//    fb->setSpinnable(true);
+//    fb->setCallback([this](float value) { this->m_normal_scaling = value; });
+//
+//    new Label(panel, "Height :", "sans-bold");
+//
+//    fb = new FloatBox<double>(panel);
+//    fb->setEditable(true);
+//    fb->setFixedSize(Vector2i(100, 20));
+//    fb->setFontSize(14);
+//    fb->setValue(this->m_height_scaling);
+//    fb->setSpinnable(true);
+//    fb->setCallback([this](float value) { this->m_height_scaling = value; });
+//  }
 }

@@ -67,7 +67,15 @@
          </CommandLineArgument>
          <CommandLineArgument
             argument = "scene/two-sphere.json"
+            isEnabled = "NO">
+         </CommandLineArgument>
+         <CommandLineArgument
+            argument = "scene/collision.json"
             isEnabled = "YES">
+         </CommandLineArgument>
+         <CommandLineArgument
+            argument = "scene/single-planet.json"
+            isEnabled = "NO">
          </CommandLineArgument>
          <CommandLineArgument
             argument = "-o 128 "

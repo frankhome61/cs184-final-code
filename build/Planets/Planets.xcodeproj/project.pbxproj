@@ -59,6 +59,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		019B2D3E2280D89F00687F87 /* collision.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = collision.json; sourceTree = "<group>"; };
 		01EC0000227585DF0000A23F /* blas.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = blas.h; sourceTree = "<group>"; };
 		01EC0001227585DF0000A23F /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		01EC0002227585DF0000A23F /* blas_interface.hh */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = blas_interface.hh; sourceTree = "<group>"; };
@@ -4930,6 +4931,7 @@
 		01ECFFFD227585DF0000A23F /* blas_interface_impl.hh */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = blas_interface_impl.hh; sourceTree = "<group>"; };
 		01ECFFFE227585DF0000A23F /* CMakeLists.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = CMakeLists.txt; sourceTree = "<group>"; };
 		01ECFFFF227585DF0000A23F /* c_interface_base.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = c_interface_base.h; sourceTree = "<group>"; };
+		01EF4B7822791A4400777A43 /* single-planet.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "single-planet.json"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -11416,6 +11418,8 @@
 			isa = PBXGroup;
 			children = (
 				01ECFA47227585D80000A23F /* two-sphere.json */,
+				019B2D3E2280D89F00687F87 /* collision.json */,
+				01EF4B7822791A4400777A43 /* single-planet.json */,
 				01ECFA48227585D80000A23F /* plane.json */,
 				01ECFA49227585D80000A23F /* sphere.json */,
 				01ECFA4A227585D80000A23F /* pinned4.json */,

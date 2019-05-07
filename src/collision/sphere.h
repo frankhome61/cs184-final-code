@@ -28,7 +28,10 @@ public:
     void moveStep(Vector3D newPos);
     void simulate(double frames_per_sec,
                   double simulation_steps,
-                  vector<Vector3D> external_accelerations);
+                  vector<Vector3D> external_accelerations,
+                  vector<CollisionObject *> *collision_objs,
+                  Vector3D &collisionPt);
+    void collideSphere(Sphere &s, bool realistic, Vector3D &collisionPt);
 
 private:
 
