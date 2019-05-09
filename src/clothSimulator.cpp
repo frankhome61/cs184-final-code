@@ -17,6 +17,7 @@
 #define STB_IMAGE_IMPLEMENTATION
 #include "misc/stb_image.h"
 #include <iostream>
+#include "collision/particle.h"
 
 float const GRAVITY_CONSTANT = 6.67408 * pow(10.0, -11.0);
 using namespace nanogui;
@@ -313,6 +314,11 @@ void ClothSimulator::drawContents() {
     break;
   }
 
+  bool particles_initialized = false;
+  vector<CollisionObject *> particles = vector<CollisionObject *>();
+  int num_particles = 100;
+  Particle *s;
+
   for (CollisionObject *co : *collision_objects) {
       Sphere* sp = dynamic_cast<Sphere*>(co);
       if (sp != nullptr)
@@ -320,6 +326,7 @@ void ClothSimulator::drawContents() {
       
     co->render(shader);
   }
+
      if (!is_paused) {
          Vector3D collPt(-999, -999, -999);
         for (int i = 0; i < simulation_steps; i++) {
@@ -337,11 +344,44 @@ void ClothSimulator::drawContents() {
                       }
                   }
                   sp -> simulate(frames_per_sec, simulation_steps, external_accelerations, collision_objects, collPt);
-                  cout << collPt <<endl;
+//                  cout << collPt <<endl;
               }
           }
         }
+         if (collPt.x != -999 or collPt.y != -999 or collPt.z != -999) {
+
+             if (!particles_initialized) {
+                 for (int k = 0; k < num_particles; k++) {
+                     double r_random = static_cast <double> (rand()) / (static_cast <double> (RAND_MAX/0.61));
+                     float theta_random = std::rand() % ((int) (2 * PI));
+                     float phi_random = std::rand() % ((int) (2 * PI));
+                     Vector3D origin = Vector3D(collPt.x + r_random * cos(theta_random) * sin(phi_random),
+                                                collPt.y + r_random * sin(theta_random) * sin(phi_random),
+                                                collPt.z + r_random * cos(phi_random));
+                     double radius = static_cast <double> (rand()) / (static_cast <double> (RAND_MAX/0.06));
+                     Vector3D prev = collPt;
+                     s = new Particle(origin, prev, radius, 0.3, 1.0, 40, 40, 1);
+                     particles.push_back(s);
+                 }
+
+                 particles_initialized = true;
+
+
+             }
+             vector<Vector3D> external_accelerations = {};
+             external_accelerations.push_back(Vector3D(1, 1, 1));
+             s -> simulate(frames_per_sec, simulation_steps, external_accelerations, &particles, collPt);
+//             cout << "here\n" <<endl;
+
+         }
      }
+    for (CollisionObject *p : particles) {
+        Particle* ps = dynamic_cast<Particle*>(p);
+        if (ps != nullptr)
+            shader.setUniform("type", ps -> type, false);
+
+        ps->render(shader);
+    }
 }
 
 void ClothSimulator::drawWireframe(GLShader &shader) {
