@@ -71,6 +71,14 @@
          </CommandLineArgument>
          <CommandLineArgument
             argument = "scene/collision.json"
+            isEnabled = "NO">
+         </CommandLineArgument>
+         <CommandLineArgument
+            argument = "scene/multi-collision.json"
+            isEnabled = "NO">
+         </CommandLineArgument>
+         <CommandLineArgument
+            argument = "scene/solarsystem.json"
             isEnabled = "YES">
          </CommandLineArgument>
          <CommandLineArgument

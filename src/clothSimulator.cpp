@@ -17,7 +17,6 @@
 #define STB_IMAGE_IMPLEMENTATION
 #include "misc/stb_image.h"
 #include <iostream>
-#include "collision/particle.h"
 
 float const GRAVITY_CONSTANT = 6.67408 * pow(10.0, -11.0);
 using namespace nanogui;
@@ -73,6 +72,13 @@ void ClothSimulator::load_textures() {
   glGenTextures(1, &m_gl_texture_mars);
   glGenTextures(1, &m_gl_texture_sun);
      glGenTextures(1, &m_gl_texture_universe);
+    
+    glGenTextures(1, &m_gl_texture_mercury);
+    glGenTextures(1, &m_gl_texture_moon);
+    glGenTextures(1, &m_gl_texture_neptune);
+    glGenTextures(1, &m_gl_texture_venus);
+    glGenTextures(1, &m_gl_texture_uranus);
+    glGenTextures(1, &m_gl_texture_saturn);
 
   glGenTextures(1, &m_gl_cubemap_tex);
   
@@ -81,6 +87,13 @@ void ClothSimulator::load_textures() {
   m_gl_texture_mars_size = load_texture(3, m_gl_texture_mars, (m_project_root + "/textures/mars.png").c_str());
   m_gl_texture_sun_size = load_texture(4, m_gl_texture_sun, (m_project_root + "/textures/sun.png").c_str());
     m_gl_texture_sun_size = load_texture(5, m_gl_texture_universe, (m_project_root + "/textures/universe.png").c_str());
+    
+    m_gl_texture_mercury_size = load_texture(6, m_gl_texture_mercury, (m_project_root + "/textures/mercury.png").c_str());
+    m_gl_texture_moon_size = load_texture(7, m_gl_texture_moon, (m_project_root + "/textures/moon.png").c_str());
+    m_gl_texture_neptune_size = load_texture(8, m_gl_texture_neptune, (m_project_root + "/textures/neptune.png").c_str());
+    m_gl_texture_venus_size = load_texture(9, m_gl_texture_venus, (m_project_root + "/textures/venus.png").c_str());
+    m_gl_texture_uranus_size = load_texture(10, m_gl_texture_uranus, (m_project_root + "/textures/uranus.png").c_str());
+    m_gl_texture_saturn_size = load_texture(10, m_gl_texture_saturn, (m_project_root + "/textures/saturn.png").c_str());
   
   std::cout << "Texture 1 loaded with size: " << m_gl_texture_earth_size << std::endl;
   std::cout << "Texture 2 loaded with size: " << m_gl_texture_jupiter_size << std::endl;
@@ -170,6 +183,7 @@ ClothSimulator::ClothSimulator(std::string project_root, Screen *screen)
 
   glEnable(GL_PROGRAM_POINT_SIZE);
   glEnable(GL_DEPTH_TEST);
+    glEnable( GL_BLEND );
 }
 
 ClothSimulator::~ClothSimulator() {
@@ -180,6 +194,13 @@ ClothSimulator::~ClothSimulator() {
   glDeleteTextures(1, &m_gl_texture_jupiter);
   glDeleteTextures(1, &m_gl_texture_mars);
   glDeleteTextures(1, &m_gl_texture_sun);
+    glDeleteTextures(1, &m_gl_texture_mercury);
+    glDeleteTextures(1, &m_gl_texture_moon);
+    glDeleteTextures(1, &m_gl_texture_neptune);
+    glDeleteTextures(1, &m_gl_texture_venus);
+    glDeleteTextures(1, &m_gl_texture_uranus);
+    glDeleteTextures(1, &m_gl_texture_saturn);
+    
     glDeleteTextures(1, &m_gl_texture_universe);
   glDeleteTextures(1, &m_gl_cubemap_tex);
 
@@ -298,6 +319,13 @@ void ClothSimulator::drawContents() {
     shader.setUniform("u_texture_mars_size", Vector2f(m_gl_texture_mars_size.x, m_gl_texture_mars_size.y), false);
     shader.setUniform("u_texture_sun_size", Vector2f(m_gl_texture_sun_size.x, m_gl_texture_sun_size.y), false);
     shader.setUniform("u_texture_universe_size", Vector2f(m_gl_texture_universe_size.x, m_gl_texture_universe_size.y), false);
+          
+    shader.setUniform("u_texture_mercury_size", Vector2f(m_gl_texture_mercury_size.x, m_gl_texture_mercury_size.y), false);
+    shader.setUniform("u_texture_moon_size", Vector2f(m_gl_texture_moon_size.x, m_gl_texture_moon_size.y), false);
+    shader.setUniform("u_texture_venus_size", Vector2f(m_gl_texture_venus_size.x, m_gl_texture_venus_size.y), false);
+    shader.setUniform("u_texture_uranus_size", Vector2f(m_gl_texture_uranus_size.x, m_gl_texture_uranus_size.y), false);
+    shader.setUniform("u_texture_neptune_size", Vector2f(m_gl_texture_neptune_size.x, m_gl_texture_neptune_size.y), false);
+          shader.setUniform("u_texture_saturn_size", Vector2f(m_gl_texture_saturn_size.x, m_gl_texture_saturn_size.y), false);
     // Textures
     
     shader.setUniform("u_texture_earth", 1, false);
@@ -305,6 +333,14 @@ void ClothSimulator::drawContents() {
     shader.setUniform("u_texture_mars", 3, false);
     shader.setUniform("u_texture_sun", 4, false);
     shader.setUniform("u_texture_universe", 5, false);
+  shader.setUniform("u_texture_mercury", 6, false);
+  shader.setUniform("u_texture_moon", 7, false);
+  shader.setUniform("u_texture_venus", 8, false);
+  shader.setUniform("u_texture_uranus", 9, false);
+  shader.setUniform("u_texture_neptune", 10, false);
+          shader.setUniform("u_texture_saturn", 10, false);
+          
+        
     
     shader.setUniform("u_normal_scaling", m_normal_scaling, false);
     shader.setUniform("u_height_scaling", m_height_scaling, false);
@@ -314,11 +350,6 @@ void ClothSimulator::drawContents() {
     break;
   }
 
-  bool particles_initialized = false;
-  vector<CollisionObject *> particles = vector<CollisionObject *>();
-  int num_particles = 100;
-  Particle *s;
-
   for (CollisionObject *co : *collision_objects) {
       Sphere* sp = dynamic_cast<Sphere*>(co);
       if (sp != nullptr)
@@ -326,7 +357,6 @@ void ClothSimulator::drawContents() {
       
     co->render(shader);
   }
-
      if (!is_paused) {
          Vector3D collPt(-999, -999, -999);
         for (int i = 0; i < simulation_steps; i++) {
@@ -340,48 +370,15 @@ void ClothSimulator::drawContents() {
                           double dist2 = (sq->origin - sp->origin).norm2();
                           Vector3D radialDir = (sq->origin - sp->origin).unit();
                           Vector3D grav = GRAVITY_CONSTANT * sp->mass * sq->mass / dist2 * radialDir;
+                        
                           external_accelerations.push_back(grav);
                       }
                   }
                   sp -> simulate(frames_per_sec, simulation_steps, external_accelerations, collision_objects, collPt);
-//                  cout << collPt <<endl;
               }
           }
         }
-         if (collPt.x != -999 or collPt.y != -999 or collPt.z != -999) {
-
-             if (!particles_initialized) {
-                 for (int k = 0; k < num_particles; k++) {
-                     double r_random = static_cast <double> (rand()) / (static_cast <double> (RAND_MAX/0.61));
-                     float theta_random = std::rand() % ((int) (2 * PI));
-                     float phi_random = std::rand() % ((int) (2 * PI));
-                     Vector3D origin = Vector3D(collPt.x + r_random * cos(theta_random) * sin(phi_random),
-                                                collPt.y + r_random * sin(theta_random) * sin(phi_random),
-                                                collPt.z + r_random * cos(phi_random));
-                     double radius = static_cast <double> (rand()) / (static_cast <double> (RAND_MAX/0.06));
-                     Vector3D prev = collPt;
-                     s = new Particle(origin, prev, radius, 0.3, 1.0, 40, 40, 1);
-                     particles.push_back(s);
-                 }
-
-                 particles_initialized = true;
-
-
-             }
-             vector<Vector3D> external_accelerations = {};
-             external_accelerations.push_back(Vector3D(1, 1, 1));
-             s -> simulate(frames_per_sec, simulation_steps, external_accelerations, &particles, collPt);
-//             cout << "here\n" <<endl;
-
-         }
      }
-    for (CollisionObject *p : particles) {
-        Particle* ps = dynamic_cast<Particle*>(p);
-        if (ps != nullptr)
-            shader.setUniform("type", ps -> type, false);
-
-        ps->render(shader);
-    }
 }
 
 void ClothSimulator::drawWireframe(GLShader &shader) {

@@ -59,6 +59,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		017C40A52284C53200457379 /* multiple-planet.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "multiple-planet.json"; sourceTree = "<group>"; };
+		017C40A62284C53300457379 /* multi-collision.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "multi-collision.json"; sourceTree = "<group>"; };
+		017C40A72284D56C00457379 /* solarsystem.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = solarsystem.json; sourceTree = "<group>"; };
 		019B2D3E2280D89F00687F87 /* collision.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = collision.json; sourceTree = "<group>"; };
 		01EC0000227585DF0000A23F /* blas.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = blas.h; sourceTree = "<group>"; };
 		01EC0001227585DF0000A23F /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
@@ -3944,11 +3947,7 @@
 		01ECFA44227585D80000A23F /* serializer.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = serializer.cpp; sourceTree = "<group>"; };
 		01ECFA45227585D80000A23F /* popupbutton.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = popupbutton.cpp; sourceTree = "<group>"; };
 		01ECFA47227585D80000A23F /* two-sphere.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "two-sphere.json"; sourceTree = "<group>"; };
-		01ECFA48227585D80000A23F /* plane.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = plane.json; sourceTree = "<group>"; };
 		01ECFA49227585D80000A23F /* sphere.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = sphere.json; sourceTree = "<group>"; };
-		01ECFA4A227585D80000A23F /* pinned4.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = pinned4.json; sourceTree = "<group>"; };
-		01ECFA4B227585D80000A23F /* selfCollision.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = selfCollision.json; sourceTree = "<group>"; };
-		01ECFA4C227585D80000A23F /* pinned2.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = pinned2.json; sourceTree = "<group>"; };
 		01ECFA4E227585DA0000A23F /* clothsim */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; path = clothsim; sourceTree = "<group>"; };
 		01ECFA51227585DA0000A23F /* progress.marks */ = {isa = PBXFileReference; lastKnownFileType = text; path = progress.marks; sourceTree = "<group>"; };
 		01ECFA52227585DA0000A23F /* CMakeDirectoryInformation.cmake */ = {isa = PBXFileReference; lastKnownFileType = text; path = CMakeDirectoryInformation.cmake; sourceTree = "<group>"; };
@@ -11418,13 +11417,12 @@
 			isa = PBXGroup;
 			children = (
 				01ECFA47227585D80000A23F /* two-sphere.json */,
+				017C40A72284D56C00457379 /* solarsystem.json */,
+				017C40A62284C53300457379 /* multi-collision.json */,
+				017C40A52284C53200457379 /* multiple-planet.json */,
 				019B2D3E2280D89F00687F87 /* collision.json */,
 				01EF4B7822791A4400777A43 /* single-planet.json */,
-				01ECFA48227585D80000A23F /* plane.json */,
 				01ECFA49227585D80000A23F /* sphere.json */,
-				01ECFA4A227585D80000A23F /* pinned4.json */,
-				01ECFA4B227585D80000A23F /* selfCollision.json */,
-				01ECFA4C227585D80000A23F /* pinned2.json */,
 			);
 			name = scene;
 			path = ../../scene;

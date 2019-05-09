@@ -8,6 +8,15 @@ uniform sampler2D u_texture_earth;
 uniform sampler2D u_texture_jupiter;
 uniform sampler2D u_texture_mars;
 uniform sampler2D u_texture_sun;
+
+uniform sampler2D u_texture_mercury;
+uniform sampler2D u_texture_moon;
+uniform sampler2D u_texture_neptune;
+uniform sampler2D u_texture_venus;
+uniform sampler2D u_texture_uranus;
+uniform sampler2D u_texture_saturn;
+
+
 uniform sampler2D u_texture_universe;
 
 uniform int type;
@@ -31,6 +40,21 @@ void main() {
         s = texture(u_texture_mars, v_uv);
     } else if (type == 4) {
         s = texture(u_texture_sun, v_uv);
+    } else if (type == 5) {
+        s = texture(u_texture_mercury, v_uv);
+    } else if (type == 6) {
+        s = texture(u_texture_moon, v_uv);
+    } else if (type == 7) {
+        s = texture(u_texture_neptune, v_uv);
+    } else if (type == 8) {
+        s = texture(u_texture_moon, v_uv);
+    } else if (type == 9) {
+        s = texture(u_texture_venus, v_uv);
+    } else if (type == 10) {
+        s = texture(u_texture_uranus, v_uv);
+    }
+    else if (type == 11) {
+        s = texture(u_texture_saturn, v_uv);
     }
       // (Placeholder code. You will want to replace it.)
         out_color = vec4(s.x, s.y, s.z, 0);

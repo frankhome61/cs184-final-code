@@ -77,15 +77,40 @@ private:
   Vector3D m_gl_texture_earth_size;
   Vector3D m_gl_texture_jupiter_size;
   Vector3D m_gl_texture_mars_size;
+    
+  Vector3D m_gl_texture_mercury_size;
+  Vector3D m_gl_texture_moon_size;
+  Vector3D m_gl_texture_neptune_size;
+  Vector3D m_gl_texture_venus_size;
+  Vector3D m_gl_texture_uranus_size;
+    Vector3D m_gl_texture_saturn_size;
+    
   Vector3D m_gl_texture_sun_size;
-    Vector3D m_gl_texture_universe_size;
-  GLuint m_gl_texture_earth;
-  GLuint m_gl_texture_jupiter;
+    
+ 
+    
+
+    
+  Vector3D m_gl_texture_universe_size;
+    
+  GLuint m_gl_texture_earth; // 1
+    GLuint m_gl_texture_jupiter; // ;
   GLuint m_gl_texture_mars;
   GLuint m_gl_texture_sun;
-  GLuint m_gl_cubemap_tex;
-    GLuint m_gl_texture_universe;
+    
+    GLuint m_gl_texture_mercury;
+    GLuint m_gl_texture_moon;
+    GLuint m_gl_texture_neptune;
+    GLuint m_gl_texture_venus;
+    GLuint m_gl_texture_uranus;
+    GLuint m_gl_texture_saturn;
+    
+ 
+    
+  GLuint m_gl_texture_universe;
   
+    
+  GLuint m_gl_cubemap_tex;
   // OpenGL customizable inputs
   
   double m_normal_scaling = 2.0;
