@@ -10,22 +10,6 @@
 misc.h
 ../CGL/include/CGL/misc.h
 
-../CGL/include/CGL/matrix3x3.h
-CGL.h
-../CGL/include/CGL/CGL.h
-vector3D.h
-../CGL/include/CGL/vector3D.h
-iosfwd
--
-
-../CGL/include/CGL/matrix4x4.h
-CGL.h
-../CGL/include/CGL/CGL.h
-vector4D.h
-../CGL/include/CGL/vector4D.h
-iosfwd
--
-
 ../CGL/include/CGL/misc.h
 cmath
 -
@@ -37,16 +21,6 @@ algorithm
 ../CGL/include/CGL/vector3D.h
 CGL.h
 ../CGL/include/CGL/CGL.h
-ostream
--
-cmath
--
-
-../CGL/include/CGL/vector4D.h
-CGL.h
-../CGL/include/CGL/CGL.h
-vector3D.h
-../CGL/include/CGL/vector3D.h
 ostream
 -
 cmath
@@ -1374,34 +1348,6 @@ vector
 nanogui/widget.h
 -
 
-/Users/Frank/Documents/Documents - SuperBook/Academics/UC Berkeley/Courses/CS 184 - Foundations of Computer Graphics/Projects/Final Project/code/src/camera.h
-iostream
--
-CGL/matrix3x3.h
-/Users/Frank/Documents/Documents - SuperBook/Academics/UC Berkeley/Courses/CS 184 - Foundations of Computer Graphics/Projects/Final Project/code/src/CGL/matrix3x3.h
-misc/camera_info.h
-/Users/Frank/Documents/Documents - SuperBook/Academics/UC Berkeley/Courses/CS 184 - Foundations of Computer Graphics/Projects/Final Project/code/src/misc/camera_info.h
-math.h
-/Users/Frank/Documents/Documents - SuperBook/Academics/UC Berkeley/Courses/CS 184 - Foundations of Computer Graphics/Projects/Final Project/code/src/math.h
-
-/Users/Frank/Documents/Documents - SuperBook/Academics/UC Berkeley/Courses/CS 184 - Foundations of Computer Graphics/Projects/Final Project/code/src/cloth.h
-unordered_set
--
-unordered_map
--
-vector
--
-CGL/CGL.h
-/Users/Frank/Documents/Documents - SuperBook/Academics/UC Berkeley/Courses/CS 184 - Foundations of Computer Graphics/Projects/Final Project/code/src/CGL/CGL.h
-CGL/misc.h
-/Users/Frank/Documents/Documents - SuperBook/Academics/UC Berkeley/Courses/CS 184 - Foundations of Computer Graphics/Projects/Final Project/code/src/CGL/misc.h
-clothMesh.h
-/Users/Frank/Documents/Documents - SuperBook/Academics/UC Berkeley/Courses/CS 184 - Foundations of Computer Graphics/Projects/Final Project/code/src/clothMesh.h
-collision/collisionObject.h
-/Users/Frank/Documents/Documents - SuperBook/Academics/UC Berkeley/Courses/CS 184 - Foundations of Computer Graphics/Projects/Final Project/code/src/collision/collisionObject.h
-spring.h
-/Users/Frank/Documents/Documents - SuperBook/Academics/UC Berkeley/Courses/CS 184 - Foundations of Computer Graphics/Projects/Final Project/code/src/spring.h
-
 /Users/Frank/Documents/Documents - SuperBook/Academics/UC Berkeley/Courses/CS 184 - Foundations of Computer Graphics/Projects/Final Project/code/src/clothMesh.h
 vector
 -
@@ -1410,59 +1356,21 @@ CGL/CGL.h
 pointMass.h
 /Users/Frank/Documents/Documents - SuperBook/Academics/UC Berkeley/Courses/CS 184 - Foundations of Computer Graphics/Projects/Final Project/code/src/pointMass.h
 
-/Users/Frank/Documents/Documents - SuperBook/Academics/UC Berkeley/Courses/CS 184 - Foundations of Computer Graphics/Projects/Final Project/code/src/clothSimulator.cpp
-cmath
--
-glad/glad.h
--
-CGL/vector3D.h
--
+/Users/Frank/Documents/Documents - SuperBook/Academics/UC Berkeley/Courses/CS 184 - Foundations of Computer Graphics/Projects/Final Project/code/src/collision/collisionObject.h
 nanogui/nanogui.h
 -
-clothSimulator.h
-/Users/Frank/Documents/Documents - SuperBook/Academics/UC Berkeley/Courses/CS 184 - Foundations of Computer Graphics/Projects/Final Project/code/src/clothSimulator.h
-leak_fix.h
-/Users/Frank/Documents/Documents - SuperBook/Academics/UC Berkeley/Courses/CS 184 - Foundations of Computer Graphics/Projects/Final Project/code/src/leak_fix.h
-camera.h
-/Users/Frank/Documents/Documents - SuperBook/Academics/UC Berkeley/Courses/CS 184 - Foundations of Computer Graphics/Projects/Final Project/code/src/camera.h
-cloth.h
-/Users/Frank/Documents/Documents - SuperBook/Academics/UC Berkeley/Courses/CS 184 - Foundations of Computer Graphics/Projects/Final Project/code/src/cloth.h
-collision/plane.h
-/Users/Frank/Documents/Documents - SuperBook/Academics/UC Berkeley/Courses/CS 184 - Foundations of Computer Graphics/Projects/Final Project/code/src/collision/plane.h
-collision/sphere.h
+../clothMesh.h
+/Users/Frank/Documents/Documents - SuperBook/Academics/UC Berkeley/Courses/CS 184 - Foundations of Computer Graphics/Projects/Final Project/code/src/clothMesh.h
+
+/Users/Frank/Documents/Documents - SuperBook/Academics/UC Berkeley/Courses/CS 184 - Foundations of Computer Graphics/Projects/Final Project/code/src/collision/sphere.cpp
+nanogui/nanogui.h
+-
+../clothMesh.h
+/Users/Frank/Documents/Documents - SuperBook/Academics/UC Berkeley/Courses/CS 184 - Foundations of Computer Graphics/Projects/Final Project/code/src/clothMesh.h
+../misc/sphere_drawing.h
+/Users/Frank/Documents/Documents - SuperBook/Academics/UC Berkeley/Courses/CS 184 - Foundations of Computer Graphics/Projects/Final Project/code/src/misc/sphere_drawing.h
+sphere.h
 /Users/Frank/Documents/Documents - SuperBook/Academics/UC Berkeley/Courses/CS 184 - Foundations of Computer Graphics/Projects/Final Project/code/src/collision/sphere.h
-misc/camera_info.h
-/Users/Frank/Documents/Documents - SuperBook/Academics/UC Berkeley/Courses/CS 184 - Foundations of Computer Graphics/Projects/Final Project/code/src/misc/camera_info.h
-misc/file_utils.h
-/Users/Frank/Documents/Documents - SuperBook/Academics/UC Berkeley/Courses/CS 184 - Foundations of Computer Graphics/Projects/Final Project/code/src/misc/file_utils.h
-misc/stb_image.h
-/Users/Frank/Documents/Documents - SuperBook/Academics/UC Berkeley/Courses/CS 184 - Foundations of Computer Graphics/Projects/Final Project/code/src/misc/stb_image.h
-iostream
--
-
-/Users/Frank/Documents/Documents - SuperBook/Academics/UC Berkeley/Courses/CS 184 - Foundations of Computer Graphics/Projects/Final Project/code/src/clothSimulator.h
-nanogui/nanogui.h
--
-camera.h
-/Users/Frank/Documents/Documents - SuperBook/Academics/UC Berkeley/Courses/CS 184 - Foundations of Computer Graphics/Projects/Final Project/code/src/camera.h
-cloth.h
-/Users/Frank/Documents/Documents - SuperBook/Academics/UC Berkeley/Courses/CS 184 - Foundations of Computer Graphics/Projects/Final Project/code/src/cloth.h
-collision/collisionObject.h
-/Users/Frank/Documents/Documents - SuperBook/Academics/UC Berkeley/Courses/CS 184 - Foundations of Computer Graphics/Projects/Final Project/code/src/collision/collisionObject.h
-
-/Users/Frank/Documents/Documents - SuperBook/Academics/UC Berkeley/Courses/CS 184 - Foundations of Computer Graphics/Projects/Final Project/code/src/collision/collisionObject.h
-nanogui/nanogui.h
--
-../clothMesh.h
-/Users/Frank/Documents/Documents - SuperBook/Academics/UC Berkeley/Courses/CS 184 - Foundations of Computer Graphics/Projects/Final Project/code/src/clothMesh.h
-
-/Users/Frank/Documents/Documents - SuperBook/Academics/UC Berkeley/Courses/CS 184 - Foundations of Computer Graphics/Projects/Final Project/code/src/collision/plane.h
-nanogui/nanogui.h
--
-../clothMesh.h
-/Users/Frank/Documents/Documents - SuperBook/Academics/UC Berkeley/Courses/CS 184 - Foundations of Computer Graphics/Projects/Final Project/code/src/clothMesh.h
-collisionObject.h
-/Users/Frank/Documents/Documents - SuperBook/Academics/UC Berkeley/Courses/CS 184 - Foundations of Computer Graphics/Projects/Final Project/code/src/collision/collisionObject.h
 
 /Users/Frank/Documents/Documents - SuperBook/Academics/UC Berkeley/Courses/CS 184 - Foundations of Computer Graphics/Projects/Final Project/code/src/collision/sphere.h
 ../clothMesh.h
@@ -1472,26 +1380,6 @@ collisionObject.h
 collisionObject.h
 /Users/Frank/Documents/Documents - SuperBook/Academics/UC Berkeley/Courses/CS 184 - Foundations of Computer Graphics/Projects/Final Project/code/src/collision/collisionObject.h
 
-/Users/Frank/Documents/Documents - SuperBook/Academics/UC Berkeley/Courses/CS 184 - Foundations of Computer Graphics/Projects/Final Project/code/src/leak_fix.h
-
-/Users/Frank/Documents/Documents - SuperBook/Academics/UC Berkeley/Courses/CS 184 - Foundations of Computer Graphics/Projects/Final Project/code/src/misc/camera_info.h
-collada_info.h
-/Users/Frank/Documents/Documents - SuperBook/Academics/UC Berkeley/Courses/CS 184 - Foundations of Computer Graphics/Projects/Final Project/code/src/misc/collada_info.h
-
-/Users/Frank/Documents/Documents - SuperBook/Academics/UC Berkeley/Courses/CS 184 - Foundations of Computer Graphics/Projects/Final Project/code/src/misc/collada_info.h
-string
--
-vector
--
-CGL/matrix4x4.h
-/Users/Frank/Documents/Documents - SuperBook/Academics/UC Berkeley/Courses/CS 184 - Foundations of Computer Graphics/Projects/Final Project/code/src/misc/CGL/matrix4x4.h
-
-/Users/Frank/Documents/Documents - SuperBook/Academics/UC Berkeley/Courses/CS 184 - Foundations of Computer Graphics/Projects/Final Project/code/src/misc/file_utils.h
-set
--
-string
--
-
 /Users/Frank/Documents/Documents - SuperBook/Academics/UC Berkeley/Courses/CS 184 - Foundations of Computer Graphics/Projects/Final Project/code/src/misc/sphere_drawing.h
 vector
 -
@@ -1500,38 +1388,6 @@ nanogui/nanogui.h
 CGL/CGL.h
 /Users/Frank/Documents/Documents - SuperBook/Academics/UC Berkeley/Courses/CS 184 - Foundations of Computer Graphics/Projects/Final Project/code/src/misc/CGL/CGL.h
 
-/Users/Frank/Documents/Documents - SuperBook/Academics/UC Berkeley/Courses/CS 184 - Foundations of Computer Graphics/Projects/Final Project/code/src/misc/stb_image.h
-stb_image.h
-/Users/Frank/Documents/Documents - SuperBook/Academics/UC Berkeley/Courses/CS 184 - Foundations of Computer Graphics/Projects/Final Project/code/src/misc/stb_image.h
-stdio.h
--
-stdlib.h
--
-stdarg.h
--
-stddef.h
--
-stdlib.h
--
-string.h
--
-limits.h
--
-math.h
--
-stdio.h
--
-assert.h
--
-stdint.h
--
-emmintrin.h
--
-intrin.h
--
-arm_neon.h
--
-
 /Users/Frank/Documents/Documents - SuperBook/Academics/UC Berkeley/Courses/CS 184 - Foundations of Computer Graphics/Projects/Final Project/code/src/pointMass.h
 CGL/CGL.h
 /Users/Frank/Documents/Documents - SuperBook/Academics/UC Berkeley/Courses/CS 184 - Foundations of Computer Graphics/Projects/Final Project/code/src/CGL/CGL.h
@@ -1539,12 +1395,4 @@ CGL/misc.h
 /Users/Frank/Documents/Documents - SuperBook/Academics/UC Berkeley/Courses/CS 184 - Foundations of Computer Graphics/Projects/Final Project/code/src/CGL/misc.h
 CGL/vector3D.h
 /Users/Frank/Documents/Documents - SuperBook/Academics/UC Berkeley/Courses/CS 184 - Foundations of Computer Graphics/Projects/Final Project/code/src/CGL/vector3D.h
-
-/Users/Frank/Documents/Documents - SuperBook/Academics/UC Berkeley/Courses/CS 184 - Foundations of Computer Graphics/Projects/Final Project/code/src/spring.h
-vector
--
-CGL/CGL.h
-/Users/Frank/Documents/Documents - SuperBook/Academics/UC Berkeley/Courses/CS 184 - Foundations of Computer Graphics/Projects/Final Project/code/src/CGL/CGL.h
-pointMass.h
-/Users/Frank/Documents/Documents - SuperBook/Academics/UC Berkeley/Courses/CS 184 - Foundations of Computer Graphics/Projects/Final Project/code/src/pointMass.h
 

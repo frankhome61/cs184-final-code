@@ -59,12 +59,14 @@ void Sphere::simulate(double frames_per_sec,
     for (CollisionObject *cp : *collision_objs) {
         Sphere* sq = dynamic_cast<Sphere*>(cp);
         if (sq != nullptr && sq != this && sq->type != 0) { // check not the universe
-            collideSphere(*sq, true, collisionPt);
+            collideSphere(*sq, true, collisionPt, frames_per_sec, simulation_steps);
         }
     }
 }
 
-void Sphere::collideSphere(Sphere &p, bool realistic, Vector3D &collisionPt) {
+void Sphere::collideSphere(Sphere &p, bool realistic, Vector3D &collisionPt, double frames_per_sec,
+                           double simulation_steps) {
+     double delta_t = 1.0f / frames_per_sec / simulation_steps;
     Vector3D pPos = p.origin;
     Vector3D orig = this -> origin;
     if ((pPos - orig).norm() > 1 * (this->radius + p.radius))
@@ -108,9 +110,10 @@ void Sphere::collideSphere(Sphere &p, bool realistic, Vector3D &collisionPt) {
         Vector3D x2 = p.origin;
         Vector3D newP1Vel = p1Velocity - (2 * m2/(m1 + m2)) * dot(p1Velocity - p2Velocity, x1 - x2) / normal.norm() * (x1 - x2);
         Vector3D newP2Vel = p2Velocity - (2 * m1/(m1 + m2)) * dot(p2Velocity - p1Velocity, x2 - x1) / normal.norm() * (x2 - x1);
-        
+//        newP1Vel *= 0.4;
+//        newP2Vel *= 0.4;
         this->prevPosition = this->currPosition;
-        this->currPosition += newP1Vel;
+        this->currPosition += newP1Vel ;
         p.prevPosition = p.currPosition;
         p.currPosition += newP2Vel;
         

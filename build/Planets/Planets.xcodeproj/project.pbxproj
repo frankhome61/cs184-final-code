@@ -62,6 +62,8 @@
 		017C40A52284C53200457379 /* multiple-planet.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "multiple-planet.json"; sourceTree = "<group>"; };
 		017C40A62284C53300457379 /* multi-collision.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "multi-collision.json"; sourceTree = "<group>"; };
 		017C40A72284D56C00457379 /* solarsystem.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = solarsystem.json; sourceTree = "<group>"; };
+		018FD0F7228601860094B1E3 /* two-body.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "two-body.json"; sourceTree = "<group>"; };
+		018FD0F82286029E0094B1E3 /* three-body.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "three-body.json"; sourceTree = "<group>"; };
 		019B2D3E2280D89F00687F87 /* collision.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = collision.json; sourceTree = "<group>"; };
 		01EC0000227585DF0000A23F /* blas.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = blas.h; sourceTree = "<group>"; };
 		01EC0001227585DF0000A23F /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
@@ -11422,6 +11424,8 @@
 				017C40A52284C53200457379 /* multiple-planet.json */,
 				019B2D3E2280D89F00687F87 /* collision.json */,
 				01EF4B7822791A4400777A43 /* single-planet.json */,
+				018FD0F7228601860094B1E3 /* two-body.json */,
+				018FD0F82286029E0094B1E3 /* three-body.json */,
 				01ECFA49227585D80000A23F /* sphere.json */,
 			);
 			name = scene;

@@ -31,7 +31,8 @@ public:
                   vector<Vector3D> external_accelerations,
                   vector<CollisionObject *> *collision_objs,
                   Vector3D &collisionPt);
-    void collideSphere(Sphere &s, bool realistic, Vector3D &collisionPt);
+    void collideSphere(Sphere &s, bool realistic, Vector3D &collisionPt, double frames_per_sec,
+                       double simulation_steps);
 
 private:
 

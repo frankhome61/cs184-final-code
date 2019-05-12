@@ -79,7 +79,15 @@
          </CommandLineArgument>
          <CommandLineArgument
             argument = "scene/solarsystem.json"
+            isEnabled = "NO">
+         </CommandLineArgument>
+         <CommandLineArgument
+            argument = "scene/two-body.json"
             isEnabled = "YES">
+         </CommandLineArgument>
+         <CommandLineArgument
+            argument = "scene/three-body.json"
+            isEnabled = "NO">
          </CommandLineArgument>
          <CommandLineArgument
             argument = "scene/single-planet.json"

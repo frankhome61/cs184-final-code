@@ -1,20 +1,28 @@
 
 {
     "sphere": [{
-        "mass": 1E+6,
-        "prev": [0.0, 0, 0.9],
-        "origin": [0, 0, 0.9],
-        "radius": 0.6,
+        "mass": 8.9E+5,
+        "prev": [-1.73, 0, -0.9992],
+        "origin": [-1.73, 0, -1],
+        "radius": 0.45,
         "friction": 0.3,
-        "type": 1
+        "type": 2
     },
     {
-        "mass": 1E+6,
-        "prev": [0, 0, 4.7],
-        "origin": [0, 0, 4.7],
-        "radius": 0.6,
+        "mass": 3.1E+5,
+        "prev": [0.0011,0,2],
+        "origin": [0,0,2],
+        "radius": 0.45,
         "friction": 0.3,
         "type": 3
+    },
+    {
+        "mass": 4E+5,
+        "prev": [1.73,0,-1.0005],
+        "origin": [1.73,0,-1],
+        "radius": 0.45,
+        "friction": 0.3,
+        "type": 8
     },
     {
         "mass": 0,
