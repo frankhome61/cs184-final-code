@@ -1,0 +1,278 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<style>
+  body {
+    padding: 100px;
+    width: 1000px;
+    margin: auto;
+    text-align: left;
+    font-weight: 300;
+    font-family: 'Open Sans', sans-serif;
+    color: #000000;
+  }
+  h1, h2, h3, h4 {
+    font-family: 'Source Sans Pro', sans-serif;
+  }
+</style>
+<title>CS 184 Final Project</title>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<link href="https://fonts.googleapis.com/css?family=Open+Sans|Source+Sans+Pro" rel="stylesheet">
+</head>
+
+
+<body>
+
+<h1 align="middle">CS 184: Computer Graphics and Imaging, Spring 2019</h1>
+<h1 align="middle">Final Project: Interstellar</h1>
+<h1 align="middle">Final Report</h1>
+
+<h2 align="middle">Guowei Yang, CS184-aam</h2>
+<h2 align="middle">Violet Fu, CS184-abj</h2>
+<h2 align="middle">Jia Ze Yu, CS184-abn</h2>
+
+<br><br>
+
+<div>
+
+<h2 align="middle">Final Project Video</h2>
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/8EMUAdR6Q04" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+<br>
+
+<a href="https://docs.google.com/presentation/d/1iwKdu6sW5WBSAi8b8IWlafMjmE2kyk5A_ZzRcYynPLM/edit?usp=sharing">Slides</a>
+
+<br>
+
+<h2 align="middle">Abstract</h2>
+
+<p>We implemented a physics-based simulation that produces a photorealistic visual rendering of the solar system which utilizes several techniques we have learned in this class including meshes, shading, texture mapping and physics simulation. We also explored interplanetary interactions such as collisions and orbiting.</p>
+
+
+<h2 align="middle">Technical approach</h2>
+
+<h3 align="middle">1. Modeling Planets & Texture Mapping</h3>
+
+<p>We implemented our gravity-based solar system physics simulation on nanoGUI. We first implemented sphereMesh objects with texture mapping of images of planet surfaces on them. </p>
+
+<div align="middle">
+  <img src="images/solarsystem.jpg" align="middle" width="500px"/>
+  <figcaption align="middle">Solar System on nanoGUI</figcaption>
+</div>
+
+<div align="middle">
+  <table style="width=100%">
+    <tr>
+      <td>
+        <img src="images/jupiter.png" align="middle" width="300px"/>
+      </td>
+      <td>
+        <img src="images/earth.png" align="middle" width="300px"/>
+      </td>
+      <br>
+    </tr>
+  </table>
+</div>
+<div align="middle">
+  <img src="images/mars.png" align="middle" width="500px"/>
+</div>
+<div align="middle">
+  <img src="images/earth-flat.png" align="middle" width="500px"/>
+  <figcaption align="middle">Texture Mapping</figcaption>
+</div>
+
+<h3 align="middle">2. Gravity and Motion Simulation </h3>
+
+<p>We successfully modeled our planets using sphere meshes with texture mapping. A planet is represented using a Sphere class. The sphere contains attributes like mass, radius, position of origin, and a “prev” field which is used to calculate the initial momentum so that the planets won’t collapse to each other.  The results are as follows: </p>
+
+<div align="middle">
+  <img src="images/grav.png" align="middle" width="500px"/>
+  <figcaption align="middle">Gravitational Force Formula</figcaption>
+</div>
+<div align="middle">
+  <img src="images/grav-pseudo.png" align="middle" width="500px"/>
+  <figcaption align="middle">Pseudocode</figcaption>
+</div>
+
+<p>To get a smooth and stable motion animation, we implemented Verlet Integration.</p>
+
+<div align="middle">
+  <img src="images/verlet.png" align="middle" width="500px"/>
+  <figcaption align="middle">Verlet Integration Formula</figcaption>
+</div>
+
+<div align="middle">
+  <img src="images/image3.gif" align="middle" width="500px"/>
+  <figcaption align="middle">Animation</figcaption>
+</div>
+
+<p>We also experimented with interplanetary orbiting.</p>
+
+<div align="middle">
+  <img src="images/earth-mars.gif" align="middle" width="500px"/>
+  <figcaption align="middle">Interplanetary Orbiting</figcaption>
+</div>
+
+<h3 align="middle">3. Blinn-Phong Shading</h3>
+
+<p>We implemented a light source in the body of the Sun and used Blinn-Phong shading for the surfaces of the planets.</p>
+
+<div align="middle">
+  <img src="images/blinn.png" align="middle" width="500px"/>
+  <figcaption align="middle">Blinn-Phong Shading</figcaption>
+</div>
+
+<div align="middle">
+  <img src="images/bpshading.png" align="middle" width="500px"/>
+  <figcaption align="middle">Realistic Shading</figcaption>
+</div>
+
+<h3 align="middle">4. Collisions and Explosions</h3>
+
+<p>We implemented a physics-based collision simulation based on the laws of conservation of momentum. However, we did not have enough time to implement the explosion of planets into pieces but we tried to render that using Blender.</p>
+
+<div align="middle">
+  <img src="images/coll.png" align="middle" width="500px"/>
+  <figcaption align="middle">Laws of Conservation of Momentum</figcaption>
+</div>
+
+<div align="middle">
+  <img src="images/image6.gif" align="middle" width="500px"/>
+  <figcaption align="middle">Physics-based collision simulation</figcaption>
+</div>
+
+<p>We also explored the pipeline of artistically rendering planet collisions using Blender. When two planets collide, we inserted a ring-like structure called Torus between the two spheres to create the effects of explosions that emit light during the collision. </p>
+
+
+<div align="middle">
+  <table style="width=100%">
+    <tr>
+      <td>
+        <img src="images/before-collision.png" align="middle" width="500px"/>
+        <figcaption align="middle">Before Collision</figcaption>
+      </td>
+      <td>
+        <img src="images/during-collision.png" align="middle" width="500px"/>
+        <figcaption align="middle">During Collision</figcaption>
+      </td>
+    </tr>
+  </table>
+</div>
+
+<p>We also applied shading that fades the planets as they disintegrate into pieces. We render the pieces as icospheres with the same shading as the planet with random sizes and positions. We also set their motion such that they travel outwards in every direction from the center of each planet.</p>
+
+<div align="middle">
+  <table style="width=100%">
+    <tr>
+      <td>
+        <img src="images/fading.png" align="middle" width="500px"/>
+        <figcaption align="middle">Before Fading</figcaption>
+      </td>
+      <td>
+        <img src="images/faded.png" align="middle" width="500px"/>
+        <figcaption align="middle">After Fading</figcaption>
+      </td>
+    </tr>
+  </table>
+</div>
+
+<p>To make the rendering even more realistic, we need to simulate the geological compositions and activities of the planet where there are terrains on the surface of the planets and magma erruptions in response to the other planet's gravity as they approach each other. To achieve this, we implemented bump mapping and displacement mapping on the surface of the planets. The shading on the surface of the planet also changes as they approach each other.</p>
+
+<div align="middle">
+  <img src="images/shading.png" align="middle" width="800px"/>
+  <figcaption align="middle">Shading Composition</figcaption>
+</div>
+
+<p>We then specify the light sources where Blender handles the ray tracing. We also change the background of the space. It takes about an hour to render the 200 frames shown below.</p>
+
+<div align="middle">
+  <img src="images/blender.gif" align="middle" width="800px"/>
+  <figcaption align="middle">Planetary Collision Rendering using Blender</figcaption>
+</div>
+
+<h2 align="middle">Results</h2>
+
+<div align="middle">
+  <table style="width=100%">
+    <tr>
+      <td>
+        <img src="images/6.gif" align="middle" width="500px"/>
+      </td>
+      <td>
+        <img src="images/2.png" align="middle" width="500px"/>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <img src="images/3.png" align="middle" width="500px"/>
+      </td>
+      <td>
+        <img src="images/4.png" align="middle" width="500px"/>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <img src="images/7.gif" align="middle" width="500px"/>
+      </td>
+      <td>
+        <img src="images/1.png" align="middle" width="500px"/>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <img src="images/a.gif" align="middle" width="500px"/>
+      </td>
+      <td>
+        <img src="images/b.gif" align="middle" width="500px"/>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <img src="images/c.gif" align="middle" width="500px"/>
+      </td>
+      <td>
+        <img src="images/d.gif" align="middle" width="500px"/>
+      </td>
+    </tr>
+
+  </table>
+</div>
+
+<div align="middle">
+  <img src="images/image2.gif" align="middle" width="800px"/>
+  <figcaption align="middle">Solar System Animation</figcaption>
+</div>
+
+<h2 align="middle">References</h2>
+
+<dl>
+  <dt>Differential Equations for Planet Orbits:</dt>
+  <dd>- https://www.youtube.com/watch?v=p_di4Zn4wz4</dd>
+  <dt>Collision: </dt>
+  <dd>- https://github.com/yuanming-hu/taichi_mpm</dd>
+  <dd>- https://www.youtube.com/watch?v=ri_xEO5Xy2Y</dd>
+  <dd>- https://github.com/tom1092/Planets-collision</dd>
+  <dt>Galaxy Simulation:</dt>
+  <dd>- https://tom1092.github.io/Planets-collision/</dd>
+  <dt>Textures & background:</dt>
+  <dd>- https://www.solarsystemscope.com/textures/</dd>
+</dl>
+
+<h2 align="middle">Contributions from each team member</h2>
+
+<h4>Guowei Yang</h4>
+
+<p>He implemented the gravity-based physics simulation for the solar system, texture mapping and interplanetary orbiting.</p>
+
+<h4>Violet Fu</h4>
+
+<p>She implemented the light source of the sun and the shading for the planets.</p>
+
+<h4>Jia Ze Yu</h4>
+
+<p>He drafted the rendering pipeline for this physics simulation and implemented the planet collisions. He also completed the necessary documentations (webpage reports).</p>
+
+
+</body>
+</html>
