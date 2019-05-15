@@ -1,995 +1,278 @@
-﻿<!DOCTYPE html>
-<html>
-  <head>
-    <title>Home</title>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
-    <meta name="apple-mobile-web-app-capable" content="yes"/>
-    <link href="resources/css/jquery-ui-themes.css" type="text/css" rel="stylesheet"/>
-    <link href="resources/css/axure_rp_page.css" type="text/css" rel="stylesheet"/>
-    <link href="data/styles.css" type="text/css" rel="stylesheet"/>
-    <link href="files/home/styles.css" type="text/css" rel="stylesheet"/>
-    <script src="resources/scripts/jquery-1.7.1.min.js"></script>
-    <script src="resources/scripts/jquery-ui-1.8.10.custom.min.js"></script>
-    <script src="resources/scripts/prototypePre.js"></script>
-    <script src="data/document.js"></script>
-    <script src="resources/scripts/prototypePost.js"></script>
-    <script src="files/home/data.js"></script>
-    <script type="text/javascript">
-      $axure.utils.getTransparentGifPath = function() { return 'resources/images/transparent.gif'; };
-      $axure.utils.getOtherPath = function() { return 'resources/Other.html'; };
-      $axure.utils.getReloadPath = function() { return 'resources/reload.html'; };
-    </script>
-  </head>
-  <body>
-    <div id="base" class="">
-
-      <!-- Unnamed (Rectangle) -->
-      <div id="u0" class="ax_default heading_1">
-        <div id="u0_div" class=""></div>
-        <div id="u0_text" class="text ">
-          <p><span>Project 3-2: Material Modeling</span></p>
-        </div>
-      </div>
-
-      <!-- background_grey (Dynamic Panel) -->
-      <div id="u1" class="ax_default" data-label="background_grey">
-        <div id="u1_state0" class="panel_state" data-label="State1" style="">
-          <div id="u1_state0_content" class="panel_state_content">
-          </div>
-        </div>
-      </div>
-
-      <!-- Unnamed (Rectangle) -->
-      <div id="u2" class="ax_default heading_1">
-        <div id="u2_div" class=""></div>
-        <div id="u2_text" class="text ">
-          <p><span>CS 184 Computer Graphics and Imaging, Spring 2019</span></p>
-        </div>
-      </div>
-
-      <!-- Unnamed (Rectangle) -->
-      <div id="u3" class="ax_default heading_1">
-        <div id="u3_div" class=""></div>
-        <div id="u3_text" class="text ">
-          <p><span style="font-family:'Avenir-Book', 'Avenir Book', 'Avenir';color:#FFFFFF;">Guowei Yang&nbsp; </span><span style="font-family:'Courier';color:#33CCFF;">cs184-aam</span></p>
-        </div>
-      </div>
-
-      <!-- Unnamed (Rectangle) -->
-      <div id="u4" class="ax_default heading_1">
-        <div id="u4_div" class=""></div>
-        <div id="u4_text" class="text ">
-          <p><span style="text-decoration:underline;">Overview</span></p>
-        </div>
-      </div>
-
-      <!-- Unnamed (Rectangle) -->
-      <div id="u5" class="ax_default heading_1">
-        <div id="u5_div" class=""></div>
-        <div id="u5_text" class="text ">
-          <p><span>University of California, Berkeley, EECS</span></p>
-        </div>
-      </div>
-
-      <!-- Unnamed (Rectangle) -->
-      <div id="u6" class="ax_default heading_1">
-        <div id="u6_div" class=""></div>
-        <div id="u6_text" class="text ">
-          <p><span>Previously we have been rendering static scenes, where the&nbsp; objects are fixed in position without any forces acting on them. This time, we will be rendering scenes with moving objects. Cloth is a very interesting object to simulate, since the motion of the cloth seems very complicated. However, we could break down a piece of cloth and model those pieces separately. Together, all those small models will create a global realistic effect. </span></p>
-        </div>
-      </div>
-
-      <!-- Unnamed (Rectangle) -->
-      <div id="u7" class="ax_default heading_1">
-        <div id="u7_div" class=""></div>
-        <div id="u7_text" class="text ">
-          <p><span>Project 3-2: Material Modeling</span></p>
-        </div>
-      </div>
-
-      <!-- Unnamed (Group) -->
-      <div id="u8" class="ax_default" data-left="179" data-top="272" data-width="1059" data-height="336">
-
-        <!-- Unnamed (Image) -->
-        <div id="u9" class="ax_default image">
-          <img id="u9_img" class="img " src="images/home/u9.png"/>
-        </div>
-
-        <!-- Unnamed (Image) -->
-        <div id="u10" class="ax_default image">
-          <img id="u10_img" class="img " src="images/home/u10.png"/>
-        </div>
-
-        <!-- Unnamed (Image) -->
-        <div id="u11" class="ax_default image">
-          <img id="u11_img" class="img " src="images/home/u11.png"/>
-        </div>
-      </div>
-
-      <!-- Unnamed (Rectangle) -->
-      <div id="u12" class="ax_default heading_1">
-        <div id="u12_div" class=""></div>
-        <div id="u12_text" class="text ">
-          <p><span style="text-decoration:underline;">Part 1: Mass and Springs </span></p>
-        </div>
-      </div>
-
-      <!-- Unnamed (Rectangle) -->
-      <div id="u13" class="ax_default heading_1">
-        <div id="u13_div" class=""></div>
-        <div id="u13_text" class="text ">
-          <p><span>In order to model the cloth, we propose a spring-mass system. A cloth consists of a predefined number of point masses. Each point mass is connected by three types of springs that enforce three different kinds of constraints: structural, shearing and bending constraints. </span></p>
-        </div>
-      </div>
-
-      <!-- Unnamed (Image) -->
-      <div id="u14" class="ax_default image">
-        <img id="u14_img" class="img " src="images/home/u14.png"/>
-      </div>
-
-      <!-- Unnamed (Rectangle) -->
-      <div id="u15" class="ax_default heading_1">
-        <div id="u15_div" class=""></div>
-        <div id="u15_text" class="text ">
-          <p><span>After setting the constraints, we could now visualize how a cloth is &quot;decomposed&quot; into spring and point masses:</span></p><p><span><br></span></p>
-        </div>
-      </div>
-
-      <!-- Unnamed (Group) -->
-      <div id="u16" class="ax_default" data-left="280" data-top="1307" data-width="818" data-height="407">
-
-        <!-- Unnamed (Group) -->
-        <div id="u17" class="ax_default" data-left="280" data-top="1307" data-width="818" data-height="397">
-
-          <!-- Unnamed (Image) -->
-          <div id="u18" class="ax_default image">
-            <img id="u18_img" class="img " src="images/home/u18.png"/>
-          </div>
-
-          <!-- Unnamed (Image) -->
-          <div id="u19" class="ax_default image">
-            <img id="u19_img" class="img " src="images/home/u19.png"/>
-          </div>
-        </div>
-
-        <!-- Unnamed (Rectangle) -->
-        <div id="u20" class="ax_default heading_1">
-          <div id="u20_div" class=""></div>
-          <div id="u20_text" class="text ">
-            <p><span>Without Shearing Constraint</span></p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Unnamed (Group) -->
-      <div id="u21" class="ax_default" data-left="314" data-top="2269" data-width="814" data-height="447">
-
-        <!-- Unnamed (Group) -->
-        <div id="u22" class="ax_default" data-left="314" data-top="2269" data-width="814" data-height="389">
-
-          <!-- Unnamed (Image) -->
-          <div id="u23" class="ax_default image">
-            <img id="u23_img" class="img " src="images/home/u23.png"/>
-          </div>
-
-          <!-- Unnamed (Image) -->
-          <div id="u24" class="ax_default image">
-            <img id="u24_img" class="img " src="images/home/u24.png"/>
-          </div>
-        </div>
-
-        <!-- Unnamed (Rectangle) -->
-        <div id="u25" class="ax_default heading_1">
-          <div id="u25_div" class=""></div>
-          <div id="u25_text" class="text ">
-            <p><span>With Only Shearing Constraint</span></p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Unnamed (Group) -->
-      <div id="u26" class="ax_default" data-left="289" data-top="1782" data-width="775" data-height="393">
-
-        <!-- Unnamed (Rectangle) -->
-        <div id="u27" class="ax_default heading_1">
-          <div id="u27_div" class=""></div>
-          <div id="u27_text" class="text ">
-            <p><span>With All Constraints</span></p>
-          </div>
-        </div>
-
-        <!-- Unnamed (Group) -->
-        <div id="u28" class="ax_default" data-left="289" data-top="1782" data-width="775" data-height="366">
-
-          <!-- Unnamed (Image) -->
-          <div id="u29" class="ax_default image">
-            <img id="u29_img" class="img " src="images/home/u29.png"/>
-          </div>
-
-          <!-- Unnamed (Image) -->
-          <div id="u30" class="ax_default image">
-            <img id="u30_img" class="img " src="images/home/u30.png"/>
-          </div>
-        </div>
-      </div>
-
-      <!-- Unnamed (Rectangle) -->
-      <div id="u31" class="ax_default heading_1">
-        <div id="u31_div" class=""></div>
-        <div id="u31_text" class="text ">
-          <p><span style="text-decoration:underline;">Part 2: Simulation via numerical integration </span></p>
-        </div>
-      </div>
-
-      <!-- Unnamed (Rectangle) -->
-      <div id="u32" class="ax_default heading_1">
-        <div id="u32_div" class=""></div>
-        <div id="u32_text" class="text ">
-          <p><span>In order to model the cloth, we propose a spring-mass system. A cloth consists of a predefined number of point masses. Each point mass is connected by three types of springs that enforce three different kinds of constraints: structural, shearing and bending constraints. </span></p>
-        </div>
-      </div>
-
-      <!-- Unnamed (Group) -->
-      <div id="u33" class="ax_default" data-left="267" data-top="3074" data-width="883" data-height="699">
-
-        <!-- Unnamed (Image) -->
-        <div id="u34" class="ax_default image">
-          <img id="u34_img" class="img " src="images/home/u34.gif"/>
-        </div>
-
-        <!-- Unnamed (Image) -->
-        <div id="u35" class="ax_default image">
-          <img id="u35_img" class="img " src="images/home/u35.gif"/>
-        </div>
-
-        <!-- Unnamed (Image) -->
-        <div id="u36" class="ax_default image">
-          <img id="u36_img" class="img " src="images/home/u36.gif"/>
-        </div>
-
-        <!-- Unnamed (Image) -->
-        <div id="u37" class="ax_default image">
-          <img id="u37_img" class="img " src="images/home/u37.gif"/>
-        </div>
-
-        <!-- Unnamed (Rectangle) -->
-        <div id="u38" class="ax_default heading_1">
-          <div id="u38_div" class=""></div>
-          <div id="u38_text" class="text ">
-            <p><span>Ks =&nbsp; 1</span></p>
-          </div>
-        </div>
-
-        <!-- Unnamed (Rectangle) -->
-        <div id="u39" class="ax_default heading_1">
-          <div id="u39_div" class=""></div>
-          <div id="u39_text" class="text ">
-            <p><span>Ks =&nbsp; 200</span></p>
-          </div>
-        </div>
-
-        <!-- Unnamed (Rectangle) -->
-        <div id="u40" class="ax_default heading_1">
-          <div id="u40_div" class=""></div>
-          <div id="u40_text" class="text ">
-            <p><span>Ks =&nbsp; 1000</span></p>
-          </div>
-        </div>
-
-        <!-- Unnamed (Rectangle) -->
-        <div id="u41" class="ax_default heading_1">
-          <div id="u41_div" class=""></div>
-          <div id="u41_text" class="text ">
-            <p><span>Ks =&nbsp; 9000</span></p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Unnamed (Rectangle) -->
-      <div id="u42" class="ax_default heading_1">
-        <div id="u42_div" class=""></div>
-        <div id="u42_text" class="text ">
-          <p><span>1. Varying Spring Constant</span></p>
-        </div>
-      </div>
-
-      <!-- Unnamed (Rectangle) -->
-      <div id="u43" class="ax_default heading_1">
-        <div id="u43_div" class=""></div>
-        <div id="u43_text" class="text ">
-          <p><span>By Varying the spring constant ks, we could observe some interesting effects, for example, for a small ks, such as 1.0, the cloth is very elastic that it behaves like thin silk; for large ks, the cloth becomes very &quot;stiff&quot;, that it's more like a piece of paper, this is because the effect is controlled by the &quot;stiffness&quot; of the spring.</span></p>
-        </div>
-      </div>
-
-      <!-- Unnamed (Rectangle) -->
-      <div id="u44" class="ax_default heading_1">
-        <div id="u44_div" class=""></div>
-        <div id="u44_text" class="text ">
-          <p><span>2. Varying Density</span></p>
-        </div>
-      </div>
-
-      <!-- Unnamed (Rectangle) -->
-      <div id="u45" class="ax_default heading_1">
-        <div id="u45_div" class=""></div>
-        <div id="u45_text" class="text ">
-          <p><span>By changing the density of the point mass, the mass of the cloth changes. As we will see below, the top of the cloth has different behavior: the larger the density is, the more concave the top edge of the cloth is. This is mainly because the higher the density is, the more mass concentrates at the middle, pulling the cloth down to the bottom.</span></p>
-        </div>
-      </div>
-
-      <!-- Unnamed (Rectangle) -->
-      <div id="u46" class="ax_default heading_1">
-        <div id="u46_div" class=""></div>
-        <div id="u46_text" class="text ">
-          <p><span>3. Varying Damping Factor</span></p>
-        </div>
-      </div>
-
-      <!-- Unnamed (Rectangle) -->
-      <div id="u47" class="ax_default heading_1">
-        <div id="u47_div" class=""></div>
-        <div id="u47_text" class="text ">
-          <p><span>When changing the damping factor, we are essentially changing how much the velocity of the point masses decay. The larger the damping factor is, the more tension there are within the cloth; the smaller the damping factor is, the more flexible the cloth is. Also it oscillates more when the damping factor is small. This is because damping controls the friction experienced by the point masses.</span></p>
-        </div>
-      </div>
-
-      <!-- Unnamed (Group) -->
-      <div id="u48" class="ax_default" data-left="267" data-top="4411" data-width="868" data-height="1069">
-
-        <!-- Unnamed (Image) -->
-        <div id="u49" class="ax_default image">
-          <img id="u49_img" class="img " src="images/home/u49.gif"/>
-        </div>
-
-        <!-- Unnamed (Image) -->
-        <div id="u50" class="ax_default image">
-          <img id="u50_img" class="img " src="images/home/u50.gif"/>
-        </div>
-
-        <!-- Unnamed (Image) -->
-        <div id="u51" class="ax_default image">
-          <img id="u51_img" class="img " src="images/home/u51.gif"/>
-        </div>
-
-        <!-- Unnamed (Image) -->
-        <div id="u52" class="ax_default image">
-          <img id="u52_img" class="img " src="images/home/u52.gif"/>
-        </div>
-
-        <!-- Unnamed (Rectangle) -->
-        <div id="u53" class="ax_default heading_1">
-          <div id="u53_div" class=""></div>
-          <div id="u53_text" class="text ">
-            <p><span>Damping = 0</span></p>
-          </div>
-        </div>
-
-        <!-- Unnamed (Rectangle) -->
-        <div id="u54" class="ax_default heading_1">
-          <div id="u54_div" class=""></div>
-          <div id="u54_text" class="text ">
-            <p><span>Damping = 0.1</span></p>
-          </div>
-        </div>
-
-        <!-- Unnamed (Rectangle) -->
-        <div id="u55" class="ax_default heading_1">
-          <div id="u55_div" class=""></div>
-          <div id="u55_text" class="text ">
-            <p><span>Damping = 0.5</span></p>
-          </div>
-        </div>
-
-        <!-- Unnamed (Rectangle) -->
-        <div id="u56" class="ax_default heading_1">
-          <div id="u56_div" class=""></div>
-          <div id="u56_text" class="text ">
-            <p><span>Damping = 1.0</span></p>
-          </div>
-        </div>
-
-        <!-- Unnamed (Rectangle) -->
-        <div id="u57" class="ax_default heading_1">
-          <div id="u57_div" class=""></div>
-          <div id="u57_text" class="text ">
-            <p><span>Cloth with 4 Pinned Corners</span></p>
-          </div>
-        </div>
-
-        <!-- Unnamed (Image) -->
-        <div id="u58" class="ax_default image">
-          <img id="u58_img" class="img " src="images/home/u58.gif"/>
-        </div>
-      </div>
-
-      <!-- Unnamed (Group) -->
-      <div id="u59" class="ax_default" data-left="267" data-top="3958" data-width="861" data-height="224">
-
-        <!-- Unnamed (Group) -->
-        <div id="u60" class="ax_default" data-left="562" data-top="3958" data-width="274" data-height="224">
-
-          <!-- Unnamed (Image) -->
-          <div id="u61" class="ax_default image">
-            <img id="u61_img" class="img " src="images/home/u61.gif"/>
-          </div>
-
-          <!-- Unnamed (Rectangle) -->
-          <div id="u62" class="ax_default heading_1">
-            <div id="u62_div" class=""></div>
-            <div id="u62_text" class="text ">
-              <p><span>Density = 50 g/m^3</span></p>
-            </div>
-          </div>
-        </div>
-
-        <!-- Unnamed (Group) -->
-        <div id="u63" class="ax_default" data-left="854" data-top="3958" data-width="274" data-height="224">
-
-          <!-- Unnamed (Image) -->
-          <div id="u64" class="ax_default image">
-            <img id="u64_img" class="img " src="images/home/u64.gif"/>
-          </div>
-
-          <!-- Unnamed (Rectangle) -->
-          <div id="u65" class="ax_default heading_1">
-            <div id="u65_div" class=""></div>
-            <div id="u65_text" class="text ">
-              <p><span>Density = 500 g/m^3</span></p>
-            </div>
-          </div>
-        </div>
-
-        <!-- Unnamed (Group) -->
-        <div id="u66" class="ax_default" data-left="267" data-top="3958" data-width="274" data-height="224">
-
-          <!-- Unnamed (Image) -->
-          <div id="u67" class="ax_default image">
-            <img id="u67_img" class="img " src="images/home/u67.gif"/>
-          </div>
-
-          <!-- Unnamed (Rectangle) -->
-          <div id="u68" class="ax_default heading_1">
-            <div id="u68_div" class=""></div>
-            <div id="u68_text" class="text ">
-              <p><span>Density = 5 g/m^3</span></p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Unnamed (Rectangle) -->
-      <div id="u69" class="ax_default heading_1">
-        <div id="u69_div" class=""></div>
-        <div id="u69_text" class="text ">
-          <p><span style="text-decoration:underline;">Part 3: Handling collisions with other objects</span></p>
-        </div>
-      </div>
-
-      <!-- Unnamed (Rectangle) -->
-      <div id="u70" class="ax_default heading_1">
-        <div id="u70_div" class=""></div>
-        <div id="u70_text" class="text ">
-          <p><span>Collision is a very common physical effect that happens quite often in physical simulation. In order to simulate collision, we perform the following: if the point mass goes past a surface, we &quot;bump&quot; the point mass back to the point where it's tangent to the surface. </span></p>
-        </div>
-      </div>
-
-      <!-- Unnamed (Image) -->
-      <div id="u71" class="ax_default image">
-        <img id="u71_img" class="img " src="images/home/u71.png"/>
-      </div>
-
-      <!-- Unnamed (Group) -->
-      <div id="u72" class="ax_default" data-left="230" data-top="5652" data-width="942" data-height="325">
-
-        <!-- Unnamed (Image) -->
-        <div id="u73" class="ax_default image">
-          <img id="u73_img" class="img " src="images/home/u73.png"/>
-        </div>
-
-        <!-- Unnamed (Image) -->
-        <div id="u74" class="ax_default image">
-          <img id="u74_img" class="img " src="images/home/u74.png"/>
-        </div>
-
-        <!-- Unnamed (Image) -->
-        <div id="u75" class="ax_default image">
-          <img id="u75_img" class="img " src="images/home/u75.png"/>
-        </div>
-      </div>
-
-      <!-- Unnamed (Rectangle) -->
-      <div id="u76" class="ax_default heading_1">
-        <div id="u76_div" class=""></div>
-        <div id="u76_text" class="text ">
-          <p><span>Ks = 5000</span></p>
-        </div>
-      </div>
-
-      <!-- Unnamed (Rectangle) -->
-      <div id="u77" class="ax_default heading_1">
-        <div id="u77_div" class=""></div>
-        <div id="u77_text" class="text ">
-          <p><span>Ks = 500</span></p>
-        </div>
-      </div>
-
-      <!-- Unnamed (Rectangle) -->
-      <div id="u78" class="ax_default heading_1">
-        <div id="u78_div" class=""></div>
-        <div id="u78_text" class="text ">
-          <p><span>Ks = 50000</span></p>
-        </div>
-      </div>
-
-      <!-- Unnamed (Rectangle) -->
-      <div id="u79" class="ax_default heading_1">
-        <div id="u79_div" class=""></div>
-        <div id="u79_text" class="text ">
-          <p><span>We can see that as we change the spring constant, the amount of wrinkles on the cloth changes. The larger the spring constant is, the less wrinkle the cloth has.</span></p>
-        </div>
-      </div>
-
-      <!-- Unnamed (Image) -->
-      <div id="u80" class="ax_default image">
-        <img id="u80_img" class="img " src="images/home/u80.gif"/>
-      </div>
-
-      <!-- Unnamed (Image) -->
-      <div id="u81" class="ax_default image">
-        <img id="u81_img" class="img " src="images/home/u81.gif"/>
-      </div>
-
-      <!-- Unnamed (Rectangle) -->
-      <div id="u82" class="ax_default heading_1">
-        <div id="u82_div" class=""></div>
-        <div id="u82_text" class="text ">
-          <p><span>Ks = 5000</span></p>
-        </div>
-      </div>
-
-      <!-- Unnamed (Rectangle) -->
-      <div id="u83" class="ax_default heading_1">
-        <div id="u83_div" class=""></div>
-        <div id="u83_text" class="text ">
-          <p><span>Ks = 500</span></p>
-        </div>
-      </div>
-
-      <!-- Unnamed (Image) -->
-      <div id="u84" class="ax_default image">
-        <img id="u84_img" class="img " src="images/home/u84.gif"/>
-      </div>
-
-      <!-- Unnamed (Rectangle) -->
-      <div id="u85" class="ax_default heading_1">
-        <div id="u85_div" class=""></div>
-        <div id="u85_text" class="text ">
-          <p><span>Cloth Resting on the Surface</span></p>
-        </div>
-      </div>
-
-      <!-- Unnamed (Rectangle) -->
-      <div id="u86" class="ax_default heading_1">
-        <div id="u86_div" class=""></div>
-        <div id="u86_text" class="text ">
-          <p><span style="text-decoration:underline;">Part 4: Handling self-collisions</span></p>
-        </div>
-      </div>
-
-      <!-- Unnamed (Rectangle) -->
-      <div id="u87" class="ax_default heading_1">
-        <div id="u87_div" class=""></div>
-        <div id="u87_text" class="text ">
-          <p><span>One simple but crucial error that the current model is that point masses could cross over with each other. We could fix this issue by enforcing another constraint: those point masses that are less than a certain threshold distance apart must be separated, aka all pairs of point masses must be 2 * thickness distance apart.</span></p>
-        </div>
-      </div>
-
-      <!-- Unnamed (Image) -->
-      <div id="u88" class="ax_default image">
-        <img id="u88_img" class="img " src="images/home/u88.gif"/>
-      </div>
-
-      <!-- Unnamed (Group) -->
-      <div id="u89" class="ax_default" data-left="241" data-top="7052" data-width="879" data-height="394">
-
-        <!-- Unnamed (Image) -->
-        <div id="u90" class="ax_default image">
-          <img id="u90_img" class="img " src="images/home/u90.png"/>
-        </div>
-
-        <!-- Unnamed (Image) -->
-        <div id="u91" class="ax_default image">
-          <img id="u91_img" class="img " src="images/home/u91.gif"/>
-        </div>
-      </div>
-
-      <!-- Unnamed (Rectangle) -->
-      <div id="u92" class="ax_default heading_1">
-        <div id="u92_div" class=""></div>
-        <div id="u92_text" class="text ">
-          <p><span>One simple but crucial error that the current model is that point masses could cross over with each other. We could fix this issue by enforcing another constraint: those point masses that are less than a certain threshold distance apart must be separated, aka all pairs of point masses must be 2 * thickness distance apart.</span></p>
-        </div>
-      </div>
-
-      <!-- Unnamed (Group) -->
-      <div id="u93" class="ax_default" data-left="267" data-top="7602" data-width="942" data-height="390">
-
-        <!-- Unnamed (Group) -->
-        <div id="u94" class="ax_default" data-left="267" data-top="7602" data-width="942" data-height="341">
-
-          <!-- Unnamed (Image) -->
-          <div id="u95" class="ax_default image">
-            <img id="u95_img" class="img " src="images/home/u95.gif"/>
-          </div>
-
-          <!-- Unnamed (Image) -->
-          <div id="u96" class="ax_default image">
-            <img id="u96_img" class="img " src="images/home/u96.png"/>
-          </div>
-        </div>
-
-        <!-- Unnamed (Rectangle) -->
-        <div id="u97" class="ax_default heading_1">
-          <div id="u97_div" class=""></div>
-          <div id="u97_text" class="text ">
-            <p><span>Cloth without Self Collision</span></p><p><span><br></span></p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Unnamed (Rectangle) -->
-      <div id="u98" class="ax_default heading_1">
-        <div id="u98_div" class=""></div>
-        <div id="u98_text" class="text ">
-          <p><span>Cloth with Self Collision</span></p><p><span><br></span></p>
-        </div>
-      </div>
-
-      <!-- Unnamed (Rectangle) -->
-      <div id="u99" class="ax_default heading_1">
-        <div id="u99_div" class=""></div>
-        <div id="u99_text" class="text ">
-          <p><span>Varying Spring Constant &amp; Point Mass Density</span></p>
-        </div>
-      </div>
-
-      <!-- Unnamed (Image) -->
-      <div id="u100" class="ax_default image">
-        <img id="u100_img" class="img " src="images/home/u100.gif"/>
-      </div>
-
-      <!-- Unnamed (Image) -->
-      <div id="u101" class="ax_default image">
-        <img id="u101_img" class="img " src="images/home/u101.gif"/>
-      </div>
-
-      <!-- Unnamed (Image) -->
-      <div id="u102" class="ax_default image">
-        <img id="u102_img" class="img " src="images/home/u102.gif"/>
-      </div>
-
-      <!-- Unnamed (Rectangle) -->
-      <div id="u103" class="ax_default heading_1">
-        <div id="u103_div" class=""></div>
-        <div id="u103_text" class="text ">
-          <p><span>Ks = 5</span></p>
-        </div>
-      </div>
-
-      <!-- Unnamed (Rectangle) -->
-      <div id="u104" class="ax_default heading_1">
-        <div id="u104_div" class=""></div>
-        <div id="u104_text" class="text ">
-          <p><span>Ks = 500</span></p>
-        </div>
-      </div>
-
-      <!-- Unnamed (Rectangle) -->
-      <div id="u105" class="ax_default heading_1">
-        <div id="u105_div" class=""></div>
-        <div id="u105_text" class="text ">
-          <p><span>Ks = 12000</span></p>
-        </div>
-      </div>
-
-      <!-- Unnamed (Rectangle) -->
-      <div id="u106" class="ax_default heading_1">
-        <div id="u106_div" class=""></div>
-        <div id="u106_text" class="text ">
-          <p><span>The smaller the spring constant is, the more soft the cloth is; the larger the spring constant is, the harder the cloth is.</span></p>
-        </div>
-      </div>
-
-      <!-- Unnamed (Image) -->
-      <div id="u107" class="ax_default image">
-        <img id="u107_img" class="img " src="images/home/u107.png"/>
-      </div>
-
-      <!-- Unnamed (Image) -->
-      <div id="u108" class="ax_default image">
-        <img id="u108_img" class="img " src="images/home/u108.png"/>
-      </div>
-
-      <!-- Unnamed (Rectangle) -->
-      <div id="u109" class="ax_default heading_1">
-        <div id="u109_div" class=""></div>
-        <div id="u109_text" class="text ">
-          <p><span>When it comes to changing density, the larger the density is, the &quot;flatter&quot; the cloth is when it lies on the surface.</span></p>
-        </div>
-      </div>
-
-      <!-- Unnamed (Rectangle) -->
-      <div id="u110" class="ax_default heading_1">
-        <div id="u110_div" class=""></div>
-        <div id="u110_text" class="text ">
-          <p><span style="text-decoration:underline;">Part 5: Shaders</span></p><p><span style="text-decoration:underline;"><br></span></p>
-        </div>
-      </div>
-
-      <!-- Unnamed (Rectangle) -->
-      <div id="u111" class="ax_default heading_1">
-        <div id="u111_div" class=""></div>
-        <div id="u111_text" class="text ">
-          <p><span>Similar to ray tracing, we wish to model the light effect on the objects. We use the OpenGL shader program, which essentially runs the shading algorithm in parallel in GPU. The shader program is a kind of program that could render different effects. Each instance of shader program runs independently and could be parallelized. The .vert file is a vertex shader, this shader program apply transforms to vertices, and we could modify the position of a given vertex in this program. On the other hand, the .frag file is a fragment shader program, and this program takes in geometric attributes, and outputs a color value which is then used by the rasterization algorithm. </span></p>
-        </div>
-      </div>
-
-      <!-- Unnamed (Rectangle) -->
-      <div id="u112" class="ax_default heading_1">
-        <div id="u112_div" class=""></div>
-        <div id="u112_text" class="text ">
-          <p><span>1. Blinn-Phong Shading</span></p>
-        </div>
-      </div>
-
-      <!-- Unnamed (Rectangle) -->
-      <div id="u113" class="ax_default heading_1">
-        <div id="u113_div" class=""></div>
-        <div id="u113_text" class="text ">
-          <p><span>Blinn-Phong shading model calculates three shading effects: ambient shading, specular shading and the diffuse shading. We could calculate each component as below:</span></p><p><span><br></span></p>
-        </div>
-      </div>
-
-      <!-- Unnamed (Image) -->
-      <div id="u114" class="ax_default image">
-        <img id="u114_img" class="img " src="images/home/u114.png"/>
-      </div>
-
-      <!-- Unnamed (Image) -->
-      <div id="u115" class="ax_default image">
-        <img id="u115_img" class="img " src="images/home/u115.png"/>
-        <div id="u115_text" class="text ">
-          <p><span>]</span></p>
-        </div>
-      </div>
-
-      <!-- Unnamed (Group) -->
-      <div id="u116" class="ax_default" data-left="206" data-top="9578" data-width="1043" data-height="401">
-
-        <!-- Unnamed (Image) -->
-        <div id="u117" class="ax_default image">
-          <img id="u117_img" class="img " src="images/home/u117.png"/>
-        </div>
-
-        <!-- Unnamed (Image) -->
-        <div id="u118" class="ax_default image">
-          <img id="u118_img" class="img " src="images/home/u118.png"/>
-        </div>
-
-        <!-- Unnamed (Image) -->
-        <div id="u119" class="ax_default image">
-          <img id="u119_img" class="img " src="images/home/u119.png"/>
-        </div>
-      </div>
-
-      <!-- Unnamed (Rectangle) -->
-      <div id="u120" class="ax_default heading_1">
-        <div id="u120_div" class=""></div>
-        <div id="u120_text" class="text ">
-          <p><span>Ambient Shading</span></p>
-        </div>
-      </div>
-
-      <!-- Unnamed (Rectangle) -->
-      <div id="u121" class="ax_default heading_1">
-        <div id="u121_div" class=""></div>
-        <div id="u121_text" class="text ">
-          <p><span>Diffuse Shading</span></p>
-        </div>
-      </div>
-
-      <!-- Unnamed (Rectangle) -->
-      <div id="u122" class="ax_default heading_1">
-        <div id="u122_div" class=""></div>
-        <div id="u122_text" class="text ">
-          <p><span>Specular Shading</span></p>
-        </div>
-      </div>
-
-      <!-- Unnamed (Rectangle) -->
-      <div id="u123" class="ax_default heading_1">
-        <div id="u123_div" class=""></div>
-        <div id="u123_text" class="text ">
-          <p><span>Blinn-Phong!</span></p>
-        </div>
-      </div>
-
-      <!-- Unnamed (Rectangle) -->
-      <div id="u124" class="ax_default heading_1">
-        <div id="u124_div" class=""></div>
-        <div id="u124_text" class="text ">
-          <p><span>2. Texture Mapping</span></p>
-        </div>
-      </div>
-
-      <!-- Unnamed (Rectangle) -->
-      <div id="u125" class="ax_default heading_1">
-        <div id="u125_div" class=""></div>
-        <div id="u125_text" class="text ">
-          <p><span>We could also map a texture to the object surface!</span></p>
-        </div>
-      </div>
-
-      <!-- Unnamed (Group) -->
-      <div id="u126" class="ax_default" data-left="230" data-top="10659" data-width="979" data-height="434">
-
-        <!-- Unnamed (Image) -->
-        <div id="u127" class="ax_default image">
-          <img id="u127_img" class="img " src="images/home/u127.png"/>
-        </div>
-
-        <!-- Unnamed (Image) -->
-        <div id="u128" class="ax_default image">
-          <img id="u128_img" class="img " src="images/home/u128.png"/>
-        </div>
-      </div>
-
-      <!-- Unnamed (Rectangle) -->
-      <div id="u129" class="ax_default heading_1">
-        <div id="u129_div" class=""></div>
-        <div id="u129_text" class="text ">
-          <p><span>3. Bump Texture &amp; Displacement</span></p>
-        </div>
-      </div>
-
-      <!-- Unnamed (Group) -->
-      <div id="u130" class="ax_default" data-left="194" data-top="12032" data-width="1072" data-height="618">
-
-        <!-- Unnamed (Rectangle) -->
-        <div id="u131" class="ax_default heading_1">
-          <div id="u131_div" class=""></div>
-          <div id="u131_text" class="text ">
-            <p><span>4. Mirror Shading</span></p>
-          </div>
-        </div>
-
-        <!-- Unnamed (Image) -->
-        <div id="u132" class="ax_default image">
-          <img id="u132_img" class="img " src="images/home/u132.gif"/>
-        </div>
-
-        <!-- Unnamed (Rectangle) -->
-        <div id="u133" class="ax_default heading_1">
-          <div id="u133_div" class=""></div>
-          <div id="u133_text" class="text ">
-            <p><span>Mirror shading is essentially reflecting the environment light from the surface.</span></p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Unnamed (Rectangle) -->
-      <div id="u134" class="ax_default heading_1">
-        <div id="u134_div" class=""></div>
-        <div id="u134_text" class="text ">
-          <p><span>Bump Texture:</span></p>
-        </div>
-      </div>
-
-      <!-- Unnamed (Group) -->
-      <div id="u135" class="ax_default" data-left="206" data-top="11250" data-width="1022" data-height="256">
-
-        <!-- Unnamed (Image) -->
-        <div id="u136" class="ax_default image">
-          <img id="u136_img" class="img " src="images/home/u136.png"/>
-        </div>
-
-        <!-- Unnamed (Image) -->
-        <div id="u137" class="ax_default image">
-          <img id="u137_img" class="img " src="images/home/u137.png"/>
-        </div>
-
-        <!-- Unnamed (Image) -->
-        <div id="u138" class="ax_default image">
-          <img id="u138_img" class="img " src="images/home/u138.png"/>
-        </div>
-
-        <!-- Unnamed (Image) -->
-        <div id="u139" class="ax_default image">
-          <img id="u139_img" class="img " src="images/home/u139.png"/>
-        </div>
-      </div>
-
-      <!-- Unnamed (Rectangle) -->
-      <div id="u140" class="ax_default heading_1">
-        <div id="u140_div" class=""></div>
-        <div id="u140_text" class="text ">
-          <p><span>-o 16 -a 16</span></p>
-        </div>
-      </div>
-
-      <!-- Unnamed (Rectangle) -->
-      <div id="u141" class="ax_default heading_1">
-        <div id="u141_div" class=""></div>
-        <div id="u141_text" class="text ">
-          <p><span>-o 128 -a 128</span></p>
-        </div>
-      </div>
-
-      <!-- Unnamed (Rectangle) -->
-      <div id="u142" class="ax_default heading_1">
-        <div id="u142_div" class=""></div>
-        <div id="u142_text" class="text ">
-          <p><span>Displacement Texture:</span></p>
-        </div>
-      </div>
-
-      <!-- Unnamed (Group) -->
-      <div id="u143" class="ax_default" data-left="188" data-top="11608" data-width="553" data-height="257">
-
-        <!-- Unnamed (Image) -->
-        <div id="u144" class="ax_default image">
-          <img id="u144_img" class="img " src="images/home/u144.png"/>
-        </div>
-
-        <!-- Unnamed (Image) -->
-        <div id="u145" class="ax_default image">
-          <img id="u145_img" class="img " src="images/home/u145.png"/>
-        </div>
-      </div>
-
-      <!-- Unnamed (Rectangle) -->
-      <div id="u146" class="ax_default heading_1">
-        <div id="u146_div" class=""></div>
-        <div id="u146_text" class="text ">
-          <p><span>-o 16 -a 16</span></p>
-        </div>
-      </div>
-
-      <!-- Unnamed (Rectangle) -->
-      <div id="u147" class="ax_default heading_1">
-        <div id="u147_div" class=""></div>
-        <div id="u147_text" class="text ">
-          <p><span>-o 128 -a 128</span></p>
-        </div>
-      </div>
-
-      <!-- Unnamed (Group) -->
-      <div id="u148" class="ax_default" data-left="724" data-top="11604" data-width="507" data-height="267">
-
-        <!-- Unnamed (Image) -->
-        <div id="u149" class="ax_default image">
-          <img id="u149_img" class="img " src="images/home/u149.png"/>
-        </div>
-
-        <!-- Unnamed (Image) -->
-        <div id="u150" class="ax_default image">
-          <img id="u150_img" class="img " src="images/home/u150.png"/>
-        </div>
-      </div>
-
-      <!-- Unnamed (Rectangle) -->
-      <div id="u151" class="ax_default heading_1">
-        <div id="u151_div" class=""></div>
-        <div id="u151_text" class="text ">
-          <p><span>As we could see, the higher the coarseness, the smoother the object surface is.</span></p>
-        </div>
-      </div>
-
-      <!-- Unnamed (Image) -->
-      <div id="u152" class="ax_default image">
-        <img id="u152_img" class="img " src="images/home/u152.png"/>
-      </div>
-    </div>
-  </body>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<style>
+  body {
+    padding: 100px;
+    width: 1000px;
+    margin: auto;
+    text-align: left;
+    font-weight: 300;
+    font-family: 'Open Sans', sans-serif;
+    color: #121212;
+  }
+  h1, h2, h3, h4 {
+    font-family: 'Source Sans Pro', sans-serif;
+  }
+</style>
+<title>CS 184 Final Project</title>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<link href="https://fonts.googleapis.com/css?family=Open+Sans|Source+Sans+Pro" rel="stylesheet">
+</head>
+
+
+<body>
+
+<h1 align="middle">CS 184: Computer Graphics and Imaging, Spring 2019</h1>
+<h1 align="middle">Final Project: Interstellar</h1>
+<h1 align="middle">Final Report</h1>
+
+<h2 align="middle">Guowei Yang, CS184-aam</h2>
+<h2 align="middle">Violet Fu, CS184-abj</h2>
+<h2 align="middle">Jia Ze Yu, CS184-abn</h2>
+
+<br><br>
+
+<div>
+
+<h2 align="middle">Final Project Video</h2>
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/8EMUAdR6Q04" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+<br>
+
+<a href="https://docs.google.com/presentation/d/1iwKdu6sW5WBSAi8b8IWlafMjmE2kyk5A_ZzRcYynPLM/edit?usp=sharing">Slides</a>
+
+<br>
+
+<h2 align="middle">Abstract</h2>
+
+<p>We implemented a physics-based simulation that produces a photorealistic visual rendering of the solar system which utilizes several techniques we have learned in this class including meshes, shading, texture mapping and physics simulation. We also explored interplanetary interactions such as collisions and orbiting.</p>
+
+
+<h2 align="middle">Technical approach</h2>
+
+<h3 align="middle">1. Modeling Planets & Texture Mapping</h3>
+
+<p>We implemented our gravity-based solar system physics simulation on nanoGUI. We first implemented sphereMesh objects with texture mapping of images of planet surfaces on them. </p>
+
+<div align="middle">
+  <img src="images/solarsystem.jpg" align="middle" width="500px"/>
+  <figcaption align="middle">Solar System on nanoGUI</figcaption>
+</div>
+
+<div align="middle">
+  <table style="width=100%">
+    <tr>
+      <td>
+        <img src="images/jupiter.png" align="middle" width="300px"/>
+      </td>
+      <td>
+        <img src="images/earth.png" align="middle" width="300px"/>
+      </td>
+      <br>
+    </tr>
+  </table>
+</div>
+<div align="middle">
+  <img src="images/mars.png" align="middle" width="500px"/>
+</div>
+<div align="middle">
+  <img src="images/earth-flat.png" align="middle" width="500px"/>
+  <figcaption align="middle">Texture Mapping</figcaption>
+</div>
+
+<h3 align="middle">2. Gravity and Motion Simulation </h3>
+
+<p>We successfully modeled our planets using sphere meshes with texture mapping. A planet is represented using a Sphere class. The sphere contains attributes like mass, radius, position of origin, and a “prev” field which is used to calculate the initial momentum so that the planets won’t collapse to each other.  The results are as follows: </p>
+
+<div align="middle">
+  <img src="images/grav.png" align="middle" width="500px"/>
+  <figcaption align="middle">Gravitational Force Formula</figcaption>
+</div>
+<div align="middle">
+  <img src="images/grav-pseudo.png" align="middle" width="500px"/>
+  <figcaption align="middle">Pseudocode</figcaption>
+</div>
+
+<p>To get a smooth and stable motion animation, we implemented Verlet Integration.</p>
+
+<div align="middle">
+  <img src="images/verlet.png" align="middle" width="500px"/>
+  <figcaption align="middle">Verlet Integration Formula</figcaption>
+</div>
+
+<div align="middle">
+  <img src="images/image3.gif" align="middle" width="500px"/>
+  <figcaption align="middle">Animation</figcaption>
+</div>
+
+<p>We also experimented with interplanetary orbiting.</p>
+
+<div align="middle">
+  <img src="images/earth-mars.gif" align="middle" width="500px"/>
+  <figcaption align="middle">Interplanetary Orbiting</figcaption>
+</div>
+
+<h3 align="middle">3. Blinn-Phong Shading</h3>
+
+<p>We implemented a light source in the body of the Sun and used Blinn-Phong shading for the surfaces of the planets.</p>
+
+<div align="middle">
+  <img src="images/blinn.png" align="middle" width="500px"/>
+  <figcaption align="middle">Blinn-Phong Shading</figcaption>
+</div>
+
+<div align="middle">
+  <img src="images/bpshading.png" align="middle" width="500px"/>
+  <figcaption align="middle">Realistic Shading</figcaption>
+</div>
+
+<h3 align="middle">4. Collisions and Explosions</h3>
+
+<p>We implemented a physics-based collision simulation based on the laws of conservation of momentum. However, we did not have enough time to implement the explosion of planets into pieces but we tried to render that using Blender.</p>
+
+<div align="middle">
+  <img src="images/coll.png" align="middle" width="500px"/>
+  <figcaption align="middle">Laws of Conservation of Momentum</figcaption>
+</div>
+
+<div align="middle">
+  <img src="images/image6.gif" align="middle" width="500px"/>
+  <figcaption align="middle">Physics-based collision simulation</figcaption>
+</div>
+
+<p>We also explored the pipeline of artistically rendering planet collisions using Blender. When two planets collide, we inserted a ring-like structure called Torus between the two spheres to create the effects of explosions that emit light during the collision. </p>
+
+
+<div align="middle">
+  <table style="width=100%">
+    <tr>
+      <td>
+        <img src="images/before-collision.png" align="middle" width="500px"/>
+        <figcaption align="middle">Before Collision</figcaption>
+      </td>
+      <td>
+        <img src="images/during-collision.png" align="middle" width="500px"/>
+        <figcaption align="middle">During Collision</figcaption>
+      </td>
+    </tr>
+  </table>
+</div>
+
+<p>We also applied shading that fades the planets as they disintegrate into pieces. We render the pieces as icospheres with the same shading as the planet with random sizes and positions. We also set their motion such that they travel outwards in every direction from the center of each planet.</p>
+
+<div align="middle">
+  <table style="width=100%">
+    <tr>
+      <td>
+        <img src="images/fading.png" align="middle" width="500px"/>
+        <figcaption align="middle">Before Fading</figcaption>
+      </td>
+      <td>
+        <img src="images/faded.png" align="middle" width="500px"/>
+        <figcaption align="middle">After Fading</figcaption>
+      </td>
+    </tr>
+  </table>
+</div>
+
+<p>To make the rendering even more realistic, we need to simulate the geological compositions and activities of the planet where there are terrains on the surface of the planets and magma erruptions in response to the other planet's gravity as they approach each other. To achieve this, we implemented bump mapping and displacement mapping on the surface of the planets. The shading on the surface of the planet also changes as they approach each other.</p>
+
+<div align="middle">
+  <img src="images/shading.png" align="middle" width="800px"/>
+  <figcaption align="middle">Shading Composition</figcaption>
+</div>
+
+<p>We then specify the light sources where Blender handles the ray tracing. We also change the background of the space. It takes about an hour to render the 200 frames shown below.</p>
+
+<div align="middle">
+  <img src="images/blender.gif" align="middle" width="800px"/>
+  <figcaption align="middle">Planetary Collision Rendering using Blender</figcaption>
+</div>
+
+<h2 align="middle">Results</h2>
+
+<div align="middle">
+  <table style="width=100%">
+    <tr>
+      <td>
+        <img src="images/6.gif" align="middle" width="500px"/>
+      </td>
+      <td>
+        <img src="images/2.png" align="middle" width="500px"/>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <img src="images/3.png" align="middle" width="500px"/>
+      </td>
+      <td>
+        <img src="images/4.png" align="middle" width="500px"/>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <img src="images/7.gif" align="middle" width="500px"/>
+      </td>
+      <td>
+        <img src="images/1.png" align="middle" width="500px"/>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <img src="images/a.gif" align="middle" width="500px"/>
+      </td>
+      <td>
+        <img src="images/b.gif" align="middle" width="500px"/>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <img src="images/c.gif" align="middle" width="500px"/>
+      </td>
+      <td>
+        <img src="images/d.gif" align="middle" width="500px"/>
+      </td>
+    </tr>
+    
+  </table>
+</div>
+
+<div align="middle">
+  <img src="images/image2.gif" align="middle" width="800px"/>
+  <figcaption align="middle">Solar System Animation</figcaption>
+</div>
+
+<h2 align="middle">References</h2>
+
+<dl>
+  <dt>Differential Equations for Planet Orbits:</dt>
+  <dd>- https://www.youtube.com/watch?v=p_di4Zn4wz4</dd>
+  <dt>Collision: </dt>
+  <dd>- https://github.com/yuanming-hu/taichi_mpm</dd>
+  <dd>- https://www.youtube.com/watch?v=ri_xEO5Xy2Y</dd>
+  <dd>- https://github.com/tom1092/Planets-collision</dd>
+  <dt>Galaxy Simulation:</dt>
+  <dd>- https://tom1092.github.io/Planets-collision/</dd>
+  <dt>Textures & background:</dt>
+  <dd>- https://www.solarsystemscope.com/textures/</dd>
+</dl>
+
+<h2 align="middle">Contributions from each team member</h2>
+
+<h4>Guowei Yang</h4>
+
+<p>He implemented the gravity-based physics simulation for the solar system, texture mapping and interplanetary orbiting.</p>
+
+<h4>Violet Fu</h4>
+
+<p>She implemented the light source of the sun and the shading for the planets.</p>
+
+<h4>Jia Ze Yu</h4>
+
+<p>He drafted the rendering pipeline for this physics simulation and implemented the planet collisions. He also completed the necessary documentations (webpage reports).</p>
+
+
+</body>
 </html>
